@@ -316,7 +316,12 @@ nav, article, nav ul li a, figure{
   border-radius:10px;
 }
 
-
+#map {
+	height: 3in;
+	width: 5in;
+	float:right;
+	border: 1px solid black;
+}
 /* Article styles: */
 .article-left{
 	float:left;
@@ -330,13 +335,15 @@ nav, article, nav ul li a, figure{
 article{
   background:#f8f8f8;
   margin:0.5em 0;
-  padding:20px;
+  padding:10px;
   border:1px solid #FCFCFC;
   font-size=3.0em
   -moz-box-shadow:0 1px 1px #333333;
   -webkit-box-shadow:0 1px 1px #333333;
   box-shadow:0 1px 1px #333333;
 }
+
+#contact p { margin-top:0.2em ;margin-bottom:0.2em;}
 
 /* Footer styling: */
 footer{
