@@ -34,7 +34,7 @@
   <script src="js/libs/modernizr-2.0.6.min.js"></script>
 </head>
 
-<body>
+<body onload="initialize()">
 
   <section id="page">
     <header id="banner", class="body">
@@ -62,7 +62,8 @@
       <div class="line"></div>
       <div class="articleBody">
       <div class="contact">
-	    <p>
+		<div id="map_canvas" style="float:right; width="320"; height=240" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></div>    
+		<p>
 		<iframe style="float:right" width="320" height="240" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=University+Ave,+University+of+Idaho,+Moscow,+ID+83844&amp;sll=46.726935,-117.010989&sspn=0.000040,0.007821&amp;ie=UTF8&amp;ll=46.72726,-117.010352&spn=0.000974,0.001982&amp;z=15&amp;output=embed&amp;iwloc=near&amp;addr"></iframe></p>
 		<p><strong>Email:</strong> <a href="mailto:msettles@uidaho.edu">msettles@uidaho.edu</a></p>
 		<p><strong>Phone:</strong> 617-432-4912</p>
