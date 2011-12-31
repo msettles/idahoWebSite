@@ -32,9 +32,9 @@ audio:not([controls]) { display: none; }
 
 html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 
-body { margin: 0; font-size: 13px; line-height: 1.231; }
+body { margin: 0; font-size: 13px; line-height: 1.231; background-color: #fafafa;}
 
-body, button, input, select, textarea { font-family: sans-serif; color: #222; }
+body, button, input, select, textarea { font-family: sans-serif; color: #222222; }
 
 /* 
  * Remove text-shadow in selection highlight: h5bp.com/i
@@ -100,7 +100,6 @@ sub { bottom: -0.25em; }
 
 ul, ol { margin: 1em 0; padding: 0 0 0 40px; }
 dd { margin: 0 0 0 40px; }
-nav ul, nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0; }
 
 
 /* =============================================================================
@@ -211,18 +210,164 @@ td { vertical-align: top; }
    Author: 
    ========================================================================== */
 
+#page{
+  width:960px;
+  margin:0 auto;
+  position:relative;
+}
+
+h1,h2,h3,h4{
+	font-family:"Myriad Pro","Helvetica Neue",Helvetica,Arial,Sans-Serif;
+/*	text-shadow:0 1px 1px black; */
+}
+
+#banner h1{
+	/* The logo text */
+	font-size:3.5em;
+	text-transform:uppercase;
+	margin:.5em 0 0 0;
+}
+
+#banner h2{
+	font-size:1.2em;
+	font-weight:normal;
+	letter-spacing:0.01em;
+	text-transform:uppercase;
+	margin:0 0 0 0.5em;
+}
+
+h3{
+	background-color:#C1C1C1;
+	padding:0.5em 0;
+	text-indent:1em;
+}
+/* line elements */
+
+.line{
+	/* The dividing line: */
+	height:1px;
+	background-color:#24404c;
+	border-bottom:1px solid #416371;
+	margin:1em 0;
+	overflow:hidden;
+}
+
+article .line{
+	/* The dividing line inside of the article is darker: */
+	background-color:#15242a;
+	border-bottom-color:#204656;
+	margin:1.3em 0;
+}
+
+footer .line{
+	margin:2em 0;
+}
+
+nav{
+  background:#f8f8f8;
+  padding:0px 5px;
+  text-align:right;
+/*  position:absolute;
+  right:0;
+  top:4em;
+*/
+  border:1px solid #FCFCFC;
+
+  -moz-box-shadow:0 1px 1px #333333;
+  -webkit-box-shadow:0 1px 1px #333333;
+  box-shadow:0 1px 1px #333333;
+}
+
+nav ul, nav ol { 
+	list-style: none; 
+	list-style-image: none; 
+	margin: 0; 
+	padding: 0; }
+
+nav ul li{
+  display:inline;
+}
+
+/* Navigation styling: */
+
+nav ul li a,
+nav ul li a:visited{
+  color:#b18e5f;
+  display:block;
+  float:right;
+  font-size:1.25em;
+  font-weight:bold;
+  margin:5px 2px;
+  padding:7px 10px 4px;
+  text-shadow:0 1px 1px white;
+  text-transform:uppercase;
+}
+
+nav ul li a:hover{
+  text-decoration:none;
+  background-color:#9f9d9d;
+  color:#FFFFFF;
+}
+
+nav, article, nav ul li a, figure{
+  /* Applying CSS3 rounded corners: */
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px;
+  border-radius:10px;
+}
 
 
+/* Article styles: */
+.article-left{
+	float:left;
+	width:420px;
+}
+.article-right{
+	float:right;
+	width:420px;
+}
 
+article{
+  background:#f8f8f8;
+  margin:0.5em 0;
+  padding:20px;
+  border:1px solid #FCFCFC;
+  font-size=3.0em
+  -moz-box-shadow:0 1px 1px #333333;
+  -webkit-box-shadow:0 1px 1px #333333;
+  box-shadow:0 1px 1px #333333;
+}
 
+/* Footer styling: */
+footer{
+  margin-bottom:30px;
+  text-align:center;
+  font-size:0.825em;
+}
 
+footer p{
+  margin-bottom:-2.5em;
+  position:relative;
+}
 
+footer a,footer a:visited{
+  color:#b18e5f;
+  background-color:#f8f8f8;
+  display:block;
+  padding:2px 4px; 
+  z-index:100;
+  position:relative;
+}
 
+footer a:hover{
+  text-decoration:none;
+  background-color:#9f9d9d;
+  color:#FFFFFF;
+}
 
-
-
-
-
+footer a.up{
+  float:right;
+}
 
 
 
@@ -247,11 +392,9 @@ td { vertical-align: top; }
 .invisible { visibility: hidden; }
 
 /* Contain floats: h5bp.com/q */ 
-.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:before, .clearfix:after { content: ""; display: block; }
 .clearfix:after { clear: both; }
 .clearfix { zoom: 1; }
-
-
 
 /* ==|== media queries ======================================================
    PLACEHOLDER Media Queries for Responsive Design.
@@ -290,3 +433,4 @@ td { vertical-align: top; }
   p, h2, h3 { orphans: 3; widows: 3; }
   h2, h3 { page-break-after: avoid; }
 }
+
