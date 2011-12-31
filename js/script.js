@@ -12,6 +12,7 @@ $(document).ready(function(){
 });
 
 // Google Maps
+/*
 function gmaps.initialize() {
   var latlng = new google.maps.LatLng(-34.397, 150.644);
   var myOptions = {
@@ -22,7 +23,7 @@ function gmaps.initialize() {
   var map = new google.maps.Map(document.getElementById("map_canvas"),
       myOptions);
 }
-
+*/
 
 
 
