@@ -6,276 +6,267 @@
 <!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-  <meta charset="utf-8">
+	<meta charset="utf-8">
 
-  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
-       More info: h5bp.com/b/378 -->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<!-- Use the .htaccess and remove these lines to avoid edge case issues.
+	More info: h5bp.com/b/378 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>Matt Settles, Bioinformatician</title>
-  <meta name="description" content="Matt Settles, Bioinformatician, Genomics Resources Core, IBEST, University of Idaho, personnal web page">
-  <meta name="author" content="Matt Settles">
+	<title>Matt Settles, Bioinformatician</title>
+	<meta name="description" content="Matt Settles, Bioinformatician, Genomics Resources Core, IBEST, University of Idaho, personnal web page">
+	<meta name="author" content="Matt Settles">
 
-  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+	<!-- Mobile viewport optimized: j.mp/bplateviewport -->
+	<meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 
-  <!-- CSS: implied media=all -->
-  <!-- CSS concatenated and minified via ant build script-->
-  <link rel="stylesheet" href="css/style.css">
-  <!-- end CSS-->
+	<!-- CSS: implied media=all -->
+	<!-- CSS concatenated and minified via ant build script-->
+	<link rel="stylesheet" href="css/style.css">
+	<!-- end CSS-->
 
-  <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
+	<!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
 
-  <!-- All JavaScript at the bottom, except for Modernizr / Respond.
-       Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
-       For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
-  <script src="js/libs/modernizr-2.0.6.min.js"></script>
-  <!-- Google Maps API -->
- 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<!-- All JavaScript at the bottom, except for Modernizr / Respond.
+		Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
+		For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
+	<script src="js/libs/modernizr-2.0.6.min.js"></script>
+	<!-- Google Maps API -->
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	<script type="text/javascript">
 		(function() {
 			window.onload = function(){
 				var latlng = new google.maps.LatLng(46.727213,-117.010325);
 				var options = {
-				  zoom: 17,
-				  center: latlng,
-				  mapTypeId: google.maps.MapTypeId.SATELLITE
+					zoom: 17,
+					center: latlng,
+					mapTypeId: google.maps.MapTypeId.SATELLITE
 				}; 
 				var map = new google.maps.Map(document.getElementById('map'), options);
 				var marker = new google.maps.Marker({
-				    position: latlng,
-				    title:"Life Sciences South!"
+					position: latlng,
+					title:"Life Sciences South!"
 				});
 				marker.setMap(map);
 			}
 		})();
-
 	</script>
 
 </head>
 
 <body>
 
-  <section id="page">
-    <header id="banner", class="body">
-      <h1>Matt Settles 
-      <h2>Director, Genomics Resources Core Facility</h2>
-      <h2>Institute for Bioinformatics and Evolutionary Studies, University of Idaho, Moscow, Idaho</h2>
-	    <nav class="clearfix"> <!-- The nav link semantically marks your main site navigation -->
-	        <ul>
-			  <li><a href="#publications">Publications</a></li>
-	          <li><a href="#links">Links</a></li>
-	          <li><a href="#software">Software</a></li>
-	          <li><a href="#courses">Courses</a><li>
-	          <li><a href="#research">Research/Interests</a></li>
-	          <li><a href="#contact">Contact</a></li>
-	        </ul>
-	    </nav>
-    <div class="clearfix"></div>
-    </header>
-    <div class="line"></div>  <!-- Dividing line -->
+	<section id="page">
+		<!-- Header Content -->
+		<header id="banner">
+			<h1>Matt Settles 
+			<h2>Director, Genomics Resources Core Facility</h2>
+			<h2>Institute for Bioinformatics and Evolutionary Studies, University of Idaho, Moscow, Idaho</h2>
+			<nav> <!-- The nav link semantically marks your main site navigation -->
+				<ul>
+					<li><a href="#contact">Contact</a></li>
+					<li><a href="#research">Research/Interests</a></li>
+					<li><a href="#courses">Courses</a></li>
+					<li><a href="#software">Software</a></li>
+					<li><a href="#links">Links</a></li>
+					<li><a href="#publications">Publications</a></li>
+				</ul>
+			</nav>
+			<div class="clearfix"></div>
+			<div class="line"></div>  <!-- Dividing line -->
+		</header>
 
-    <div id="row" role="row">
-	<!-- Contact Information start -->
-    <article id="contact" style="height:3.8in">
-      <h2>Contact and Information</h2>
-      <div class="line"></div>
-      <div class="articleBody">
-	  <div id="map"></div>
-      <div class="contact">
-		<p><strong>Email:</strong> <a href="mailto:msettles@uidaho.edu">msettles@uidaho.edu</a></p>
-		<p><strong>Phone:</strong> 617-432-4912</p>
-		<p><strong>Fax:</strong> 208-885-5003</p>
-		<p><strong>Office:</strong></p>
-		<p style="text-indent:1em"><a href="http://www.uidaho.edu/research/ibest">Institute for Bioinformatics and Evolutionary Studies</a></p>
-		<p style="text-indent:1em"><a href="http://www.uidaho.edu/sci/biology">Department of Biological Sciences</a></p>
-		<p style="text-indent:1em"><a href="http://www.uidaho.edu/">University Of Idaho</a></p>
-		<p style="text-indent:1em">Life Science South | Room 441C</p>
-		<p style="text-indent:1em">PO Box 443051</p>
-		<p style="text-indent:1em">Moscow, Idaho 83843-3051</p>
-		<p style="margin-top:0.6em"><strong>Education:</strong></p>
-		<p style="text-indent:1em">Ph.D. Bioinformatics and Computational Biology, University of Idaho, 2011</p>
-		<p style="text-indent:1em">M.S. Computer Science, University of Idaho, 2005</p>
-		<p style="text-indent:1em">B.S. Electrical Engineering, University of Portland, 2002</p>
+		<!-- Page Body -->
+		<!-- Row 1 -->
+		<div id="row" role="row">
+			<!-- Contact Information start -->
+			<article id="contact" >
+				<h2>Contact and Information</h2>
+				<div class="line"></div>
+				<div class="articleBody">
+					<div id="map"></div>
+					<div class="contact">
+						<p><strong>Email:</strong> <a href="mailto:msettles@uidaho.edu">msettles@uidaho.edu</a></p>
+						<p><strong>Phone:</strong> 208-885-6051</p>
+						<p><strong>Fax:</strong> 208-885-5003</p>
+						<p style="margin-top:1.0em"><strong>Office:</strong></p>
+						<p style="text-indent:1em"><a href="http://www.uidaho.edu/research/ibest">Institute for Bioinformatics and Evolutionary Studies</a></p>
+						<p style="text-indent:1em"><a href="http://www.uidaho.edu/sci/biology">Department of Biological Sciences</a></p>
+						<p style="text-indent:1em"><a href="http://www.uidaho.edu/">University Of Idaho</a></p>
+						<p style="text-indent:1em">Life Science South | Room 441C</p>
+						<p style="text-indent:1em">PO Box 443051</p>
+						<p style="text-indent:1em">Moscow, Idaho 83843-3051</p>
+						<p style="margin-top:1.0em"><strong>Education:</strong></p>
+						<p style="text-indent:1em">Ph.D. Bioinformatics and Computational Biology, University of Idaho, 2011</p>
+						<p style="text-indent:1em">M.S. Computer Science, University of Idaho, 2005</p>
+						<p style="text-indent:1em">B.S. Electrical Engineering, University of Portland, 2002</p>
+					</div>
+				</div>
+			</article>
+		    <!-- Contact Information end -->
+			<div class="clearfix"></div>
 		</div>
 
-      </div>
-    </article>
-    <div class="clearfix"></div>
-    </div>
-    <!-- Contact Information end>
+		<!-- Row 2 -->
+		<div id="row" role="row">
+			<!-- Research/Interests start -->
+			<article id="research"> 
+				<h2>Research and Interests</h2>
+				<div class="line"></div>
+				<div class="articleBody">
+					<h3>Applied Bioinformatics</h3>
+					<p>Much of my research work and interest is focused on the applied analysis of high-throughput data, including microarray data, genotype data, and high-throughput sequencing data from machine output to data visualization and statistical assessment. My experience and background has been focused on the computational manipulation and interpretation of very large datasets in a wide range of disciplines, often applying bioinformatics techniques not originally designed for a particular data type in order to ask, and answer, new and interesting biological questions.</p>
+					<h3>Microarrays - Single Feature Polymorphisms</h3>
+					<p>Gene expression microarrays are a tool used by ecologists, to study the genome-wide transcriptional variation that underlies complex interactions among and between organisms and their environment. Microarrays allow for the simultaneous measurement of thousands of gene products across many samples. These measurements rely on sequence similarity for efficient hybridization of sample mRNA targets to the microarray probes. Genetic polymorphisms located within a microarray's probe affects this hybridization efficiency. These differences in probe level hybridization efficiencies are known as single feature polymorphisms (SFPs). SFPs are both a source of error, they negatively impact the estimate for transcript abundance, and a source of information, they are genetic markers. The Affymetrix 3' IVT microarray platform uses 11 to 16 short-oligonucleotide probes, covering different regions of a gene, to measure transcript abundance. The redundancy of probes within the same gene, allows for the capability to detect candidate SFPs from the data itself. My previous work presented three new results pertaining to SFPs in Affymetrix gene expression microarray data. The first result is a novel, improved algorithm for the accurate detection of SFPs. The second result evaluates the impact of SFPs to false positives in both differential expression analysis and the detection of SFPs themselves and offers a solution to reduce false positives induced by SFPs. Finally, the third result demonstrates how SFPs can be used to provide a new means for evaluating the accuracy of critical microarray preprocessing steps. These results will provide ecologists with new tools and techniques when using Affymetrix 3' IVT microarrays in ecological microarray studies.</p>
+					<h3>Breeding Swarms: A Genetic Algorithm/Particle Swarm Optimization Hybrid Algorihtm</h3>
+					<p>Genetic Algorithms and Particles Swarm Optimization are both population based stochastic search algorithms that have proven to be successful in solving very difficult problems. However, both models have strengths and weaknesses. Previous researchers have suggested that a hybrid of the GA and PSO models could lead to further advances. Breeding Swarms, combines the strengths of GAs with those of PSO. The Breeding Swarms algorithm improves search results for real valued problems by controlling the amount of diversity in the population. We performed experiments on optimizing standard benchmark functions and recurrent neural networks. Results show that the Breeding Swarm algorithm produces significantly better results than either GA or PSO, scales well to large problems and is more consistent over different problem domains.</p>
+				</div>
+			</article>
+			<!-- Research/Interests End -->
+			<div class="clearfix"></div>
+		</div>
 
-	<div id="row" role="row">
-	<!-- Research/Interests start -->
-	<article id="research"> 
-	  <h2>Research and Interests</h2>
-	  <div class="line"></div>
-	  <div class="articleBody">
-	  <h3>Applied Bioinformatics</h3>
-	    <p>Much of my research work and interest is focused on the applied analysis of high-throughput data, including microarray data, genotype data, and high-throughput sequencing data from machine output to data visualization and statistical assessment. My experience and background has been focused on the computational manipulation and interpretation of very large datasets in a wide range of disciplines, often applying bioinformatics techniques not originally designed for a particular data type in order to ask, and answer, new and interesting biological questions.</p>
-	  </div>
-	  <h3>Microarrays - Single Feature Polymorphisms</h3>
-	  <p>Gene expression microarrays are a tool used by ecologists, to study the genome-wide transcriptional variation that underlies complex interactions among and between organisms and their environment. Microarrays allow for the simultaneous measurement of thousands of gene products across many samples. These measurements rely on sequence similarity for efficient hybridization of sample mRNA targets to the microarray probes. Genetic polymorphisms located within a microarray's probe affects this hybridization efficiency. These differences in probe level hybridization efficiencies are known as single feature polymorphisms (SFPs). SFPs are both a source of error, they negatively impact the estimate for transcript abundance, and a source of information, they are genetic markers. The Affymetrix 3' IVT microarray platform uses 11 to 16 short-oligonucleotide probes, covering different regions of a gene, to measure transcript abundance. The redundancy of probes within the same gene, allows for the capability to detect candidate SFPs from the data itself. My previous work presented three new results pertaining to SFPs in Affymetrix gene expression microarray data. The first result is a novel, improved algorithm for the accurate detection of SFPs. The second result evaluates the impact of SFPs to false positives in both differential expression analysis and the detection of SFPs themselves and offers a solution to reduce false positives induced by SFPs. Finally, the third result demonstrates how SFPs can be used to provide a new means for evaluating the accuracy of critical microarray preprocessing steps. These results will provide ecologists with new tools and techniques when using Affymetrix 3' IVT microarrays in ecological microarray studies.<\p>
-		<h3>Breeding Swarms: A Genetic Algorithm/Particle Swarm Optimization Hybrid Algorihtm</h3>
-		<p>Genetic Algorithms and Particles Swarm Optimization are both
-		population based stochastic search algorithms that have proven to be
-		successful in solving very difficult problems. However, both models
-		have strengths and weaknesses. Previous researchers have suggested
-		that a hybrid of the GA and PSO models could lead to further
-		advances. Breeding Swarms, combines the strengths of GAs with those of PSO.
-		The Breeding Swarms algorithm improves search results for real
-		valued problems by controlling the amount of diversity in the
-		population. We performed experiments on optimizing standard
-		benchmark functions and recurrent neural networks. Results show that
-		the Breeding Swarm algorithm produces significantly better results
-		than either GA or PSO, scales well to large problems and is more
-		consistent over different problem domains.</p>
-	</article>
-	<div class="clearfix"></div>
-	</div>
-	<!-- Research/Interests End>
-    
-	<div id="row" role="row">
-	<!-- Courses start -->
-    <article id="courses", class="article-left"> 
-      <h2>Courses</h2>
-      <div class="line"></div>
-      <div class="articleBody">
-        <p><a href="courses/bcb504Sp12/index.html">BCB 504: Applied Bioinformatics</a></p>
-      </div>
-    </article>
-    <!-- Courses 1 end -->
+		<!-- Row 3 -->
+		<div id="row" role="row">
+			<!-- Courses start -->
+			<article id="courses", class="article-left"> 
+				<h2>Courses</h2>
+				<div class="line"></div>
+				<div class="articleBody">
+					<p><a href="courses/bcb504Sp12/index.html">BCB 504: Applied Bioinformatics -- Spring 2012</a></p>
+				</div>
+			</article>
+			<!-- Courses end -->
 
-	<!-- Software start -->
-    <article id="software", class="article-right">
-      <h2>Software</h2>
-      <div class="line"></div>
-      <div class="articleBody">
-        <p><a href="http://www.bioconductor.org/packages/release/bioc/html/OTUbase.html">OTUbase</a>: Provides a platform for Operational Taxonomic Unit based analysis within R.</p>
-		<p><a href="https://github.com/msettles/rSFFreader">rSFFreader</a>: rSFFreader is a R package to read in sequence data (sequence, quality and clip points) from both Roche 454 sequencers and Life Sciences Ion Torrent Seuqencers.</p>
-       </div>
-    </article>
-    <!-- Software end -->
-    <div class="clearfix"></div>
-    </div>
+			<!-- Software start -->
+			<article id="software", class="article-right">
+				<h2>Software</h2>
+				<div class="line"></div>
+				<div class="articleBody">
+					<p><a href="http://www.bioconductor.org/packages/release/bioc/html/OTUbase.html">OTUbase</a>: Provides a platform for Operational Taxonomic Unit based analysis within R.</p>
+					<p><a href="https://github.com/msettles/rSFFreader">rSFFreader</a>: rSFFreader is a R package to read in sequence data (sequence, quality and clip points) from both Roche 454 sequencers and Life Sciences Ion Torrent Seuqencers.</p>
+				</div>
+			</article>
+			<!-- Software end -->
+			<div class="clearfix"></div>
+		</div>
 
+		<!-- Row 4 -->
+		<div id="row" role="row">
+			<!-- Links start -->
+			<article id="links">
+				<h2>Links</h2>
+				<div class="line"></div>
+				<div class="articleBody">
+					<p><a href="http://www.uidaho.edu/ibest">Institute for Bioinformatics and Evolutionary STudies (IBEST)</a></p>
+					<p><a href="http://cores.ibest.uidaho.edu">IBEST Core Facilities</a></p>
+					<p><a href="http://www.uidaho.edu/bcb">UI Bioinformatics and Computational Biology Graduate Program</a></p>
+				</div>
+			</article>
+			<!-- links end -->
+			<div class="clearfix"></div>
+		</div>
 
-    <div id="row" role="row">
-	<!-- Links start -->
-    <article id="links">
-      <h2>Links</h2>
-      <div class="line"></div>
-      <div class="articleBody">
-        <p><a href="http://www.uidaho.edu/ibest">Institute for Bioinformatics and Evolutionary STudies (IBEST)</a></p>
-        <p><a href="http://cores.ibest.uidaho.edu">IBEST Core Facilities</a></p>
-		<p><a href="http://www.uidaho.edu/bcb">UI Bioinformatics and Computational Biology Graduate Program</a><p>
-      </div>
-    </article>
-    <!-- links end -->
-    <div class="clearfix"></div>
-    </div>
+		<!-- Row 5 -->
+		<div id="row" role="row">
+			<!-- publications start -->
+			<article id="publications">
+				<h2>Publications</h2>
+				<div class="line"></div>
+				<div class="articleBody">
 
-    <div id="row" role="row">
-	<!-- publications start -->
-    <article id="publications">
-      <h2>Publications</h2>
-      <div class="line"></div>
-      <div class="articleBody">
-		<h3>2012</h3>
-		  <p>Rosenblum, E., Murdoch, G., <strong>Settles, M.</strong>, Poorten, T. <dfn>Only skin deep: shared genetic response to the deadly chytrid fungus in susceptible frog species.</dfn> Molecular Ecology, In Press.</p>
-		  <p>Turner, G., Cuthbertson, D., Voo, S., <strong>Settles, M.</strong>, Grimes, H., Lange, M. <dfn>Experimental sink removal induces stress responses, including shifts in amino acid and phenylpropanoid metabolism, in soybean leaves.</dfn>, Planta, In Press.</p>
-			
-		<h3>2011</h3>
-		  <p>Murdoch, BM, Murdoch, GK, <strong>Settles, M</strong>, McKay, S, Williams, JL, Moore, S <dfn>Genome-Wide Scan Identifies Loci Associated with Classical BSE Occurrence.</dfn>, PLoS ONE, 6(11):E26819, 2011.</p>
-		  <p>Furusawa, G., Dziewanowska, K., Stone, H., <strong>Settles, M.</strong>, Hartzell, P. <dfn>Global analysis of phase variation in Myxococcus xanthus.</dfn>, Molecular Microbiology, 81(3), 784-804, 2011.</p>
-		  <p>Beck, D., <strong>Settles, M.</strong>, Foster, J. <dfn>OTUbase: an R infrastructure package for operational taxonomic unit data.</dfn>, Bioinformatics, 27(13), 2011.</p>
-		  <p>Zanella, R., <strong>Settles, M.</strong>, McKay, S., Schnabel, R., Taylor, J.,  Whitlock, R., Schukken, Y., Van Kessel, J., Smith, JM., Neibergs, H. <dfn>Identification of Loci Associated with Tolerance to Johne's Disease in Holstein Cattle.</dfn> Animal Genetics, 42(1), 28-38, 2011.</p>
+					<h3>2012</h3>
+					<p>Rosenblum, E., Murdoch, G., <strong>Settles, M.</strong>, Poorten, T. <dfn>Only skin deep: shared genetic response to the deadly chytrid fungus in susceptible frog species.</dfn> Molecular Ecology, In Press.</p>
+					<p>Turner, G., Cuthbertson, D., Voo, S., <strong>Settles, M.</strong>, Grimes, H., Lange, M. <dfn>Experimental sink removal induces stress responses, including shifts in amino acid and phenylpropanoid metabolism, in soybean leaves.</dfn>, Planta, In Press.</p>
 
-		<h3>2010</h3>
-		<p>Guerrero-Bosagna C, <strong>Settles M</strong>, Lucker B, Skinner MK. <dfn>Epigenetic Transgenerational Actions of Vinclozolin on Promoter Regions of the Sperm Epigenome.</dfn> PLoS ONE, 5(9):17, 2010.</p>
-		<p>Neibergs HL, <strong>Settles ML</strong>, Whitlock RH, Taylor JF. <dfn>GSEA-SNP identifies genes associated with Johne's disease in cattle.</dfn> Mammalian genome, 21(7-8):419-425, 2010.</p>
-		<p>Clement TM, Savenkova MI, <strong>Settles M</strong>, Anway MD, Skinner MK <dfn>Alterations in the developing testis   following embryonic vinclozolin exposure.</dfn> Reproductive Toxicology, 30(3):353-363, 2010.</p>
-		<p>Murdoch, BM., Clawson, ML., Yue, S., Basu, U., McKay, S., <strong>Settles, M.</strong>, Capoferri, R., Laegreid, WW., Williams, JL., Moore, SS. <dfn>PRNP Haplotype Associated with Classical BSE Incidence in European Holstein Cattle.</dfn> PLoS ONE, 5(9):6, 2010.</p>
-		<p>Murdoch, B., Clawson, M., Laegreid, W., Stothard, P., <strong>Settles, M.</strong>, and McKay, S., Prasad, A., Wang, Z., Moore, S., Williams, J. <dfn>A 2cM genome-wide scan of European Holstein cattle affected by classical BSE.</dfn> BMC Genetics, 11(1), 2010.</p>
-		<p>Tristan Coram, Huang Xueling, Gangming Zhan, <strong>Matthew L. Settles</strong>, Xianming Chen <dfn>Meta-analysis of transcripts associated with race-specific resistance to stripe rust in wheat demonstrates common induction of blue copper-binding protein, heat-stress transcription factor, pathogen-induced WIR1A protein, and ent-kaurene synthase transcripts.</dfn> Functional and Integrative Genomics, 10(3):383-392, 2010.</p>
-		
-		<h3>2009</h3>
-		<p>Rosenblum EB, Poorten TJ, <strong>Settles M</strong>, Murdoch GK, Robert J, et al. <dfn>Genome-Wide Transcriptional Response of Silurana (Xenopus) tropicalis to Infection with the Deadly Chytrid Fungus</dfn>. PLoS ONE 4(8), 2009.</p> 
-		<p>Tristan E Coram, <strong>Matthew L Settles</strong>, Xianming Chen <dfn>Large-scale analysis of antisense transcription in wheat using the Affymetrix GeneChip Wheat Genome Array.</dfn> BMC Genomics, 10:253, 2009.</p>
-		<p><strong>Settles, M.</strong>, Zanella, R., Neigbergs, H. <dfn>Whole Genome Association Analysis of Johne's Disease in 4 US dairys using the Illumina BovineSNP50 50k SNP chip.</dfn> Animal Genetics, 40(5):655:662, 2009.</p>
-		
-		<h3>2008</h3>
-		<p>Robert E Drew, Kenneth J. Rodnick, <strong>Matthew L Settles</strong>, Jurij Wacyk, Erin J Churchill, Madison S. Powell, Ronald W Hardy, Gordon K Murdoch, Rodney A. Hill, and Barrie D Robison <dfn>Effect of Starvation on Gene Expression in Multiple Tissues of Zebrafish.</dfn> Physiological Genomics 35:283-295, 2008.</p>
-		<p>Coram, T., <strong>Settles, M.</strong>, Wang, M, Chen, X, <dfn>Surveying expression level polymorphism and single-feature polymorphism in near-isogenic wheat lines differing for the Yr5  stripe rust resistance locus.</dfn> TAG Theoretical and Applied Genetics, 117(3), 2008.</p>
-		<p>Barrie D. Robison, Robert E. Drew, Gordon K. Murdoch, Madison Powell, Kenneth J. Rodnick, <strong>Matt Settles</strong>, David Stone, Erin Churchill, Rodney A. Hill, Madhusudhan R. Papasani, Solange S. Lewis, Ronald W. Hardy, <dfn>Sexual dimorphism in hepatic gene expression and the response to dietary carbohydrate manipulation in the zebrafish (Danio rerio).</dfn> Comparative Biochemistry and Physiology Part D: Genomics and Proteomics, 3(2):141-154, 2008.</p>
-		<p>Coram, T., <strong>Settles, M.</strong>, Chen, X, <dfn>Transcriptome analysis of high-temperature adult-plant resistance conditioned by Yr39 during the wheat-Puccinia striiformis f. sp. tritici interaction.</dfn> Molecular Plant Pathology, 9(4), 2008.</p>
-		<h3>2005</h3>
-		<p><strong>Settles, M.</strong>, Soule, T. <dfn>Choosing an Algorithm: An Experimental Comparison of the Genetic Algorithm and Binary Particle Swarm.</dfn> Proceedings of the $17^{th}$ IMACS World Congress on Scientific Computation, Applied Mathematics and Simulation. Paris, France, 11-15 July 2005.</p>
-		<p><strong>Settles, M.</strong>, Soule, T. <dfn>Breeding Swarms: A GA/PSO Hybrid.</dfn> In Proceeding of the Genetic and Evolutionary Computation Conference (GECCO-2005). Washington D.C., 25-29 June 2005. ASME Press.</p>
-		<p><strong>Settles, M.</strong>, Nathan, P., Soule, T. <dfn>Breeding Swarms: A New Approach to Recurrent Neural Network Training.</dfn> In Proceeding of the Genetic and Evolutionary Computation Conference (GECCO-2005). Washington D.C., 25-29 June 2005. ASME Press.</p>
-		<h3>2003</h3>
-		<p><strong>Settles, M.</strong>, Soule, T. <dfn>A Hybrid GA/PSO to Evolve Artificial Recurrent Neural Networks.</dfn> C. Dagli and et al., eds. In Intelligent Engineering Systems Through Artificial Neural Networks (ANNIE-2003), 13:51-56, St. Louis, Missouri, 2-5 Nov. 2003. ASME Press.</p>
-		<h3>2002</h3>
-		<p><strong>Settles, M.</strong>, and Rylander, B. <dfn>Neural network learning using particle swarm optimizers.</dfn> Zemliak, A. and Mastorakis, N., eds. In Advances in Information Science and Soft Computing, pages 224-226. Cancun, Mexico, June 2002. WSEAS Press.</p>
-		
-      </div>
-    </article>
-    <div class="clearfix"></div>
-    </div>
+					<h3>2011</h3>
+					<p>Murdoch, BM, Murdoch, GK, <strong>Settles, M</strong>, McKay, S, Williams, JL, Moore, S <dfn>Genome-Wide Scan Identifies Loci Associated with Classical BSE Occurrence.</dfn>, PLoS ONE, 6(11):E26819, 2011.</p>
+					<p>Furusawa, G., Dziewanowska, K., Stone, H., <strong>Settles, M.</strong>, Hartzell, P. <dfn>Global analysis of phase variation in Myxococcus xanthus.</dfn>, Molecular Microbiology, 81(3), 784-804, 2011.</p>
+					<p>Beck, D., <strong>Settles, M.</strong>, Foster, J. <dfn>OTUbase: an R infrastructure package for operational taxonomic unit data.</dfn>, Bioinformatics, 27(13), 2011.</p>
+					<p>Zanella, R., <strong>Settles, M.</strong>, McKay, S., Schnabel, R., Taylor, J.,  Whitlock, R., Schukken, Y., Van Kessel, J., Smith, JM., Neibergs, H. <dfn>Identification of Loci Associated with Tolerance to Johne's Disease in Holstein Cattle.</dfn> Animal Genetics, 42(1), 28-38, 2011.</p>
 
-	</div>
-    <nav class="clearfix"> <!-- The nav link semantically marks your main site navigation -->
-        <ul>
-			  <li><a href="#publications">Publications</a></li>
-	          <li><a href="#links">Links</a></li>
-	          <li><a href="#software">Software</a></li>
-	          <li><a href="#courses">Courses</a><li>
-	          <li><a href="#research">Research/Interests</a></li>
-	          <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    <div class="clearfix"></div>
-    </div>
+					<h3>2010</h3>
+					<p>Guerrero-Bosagna C, <strong>Settles M</strong>, Lucker B, Skinner MK. <dfn>Epigenetic Transgenerational Actions of Vinclozolin on Promoter Regions of the Sperm Epigenome.</dfn> PLoS ONE, 5(9):17, 2010.</p>
+					<p>Neibergs HL, <strong>Settles ML</strong>, Whitlock RH, Taylor JF. <dfn>GSEA-SNP identifies genes associated with Johne's disease in cattle.</dfn> Mammalian genome, 21(7-8):419-425, 2010.</p>
+					<p>Clement TM, Savenkova MI, <strong>Settles M</strong>, Anway MD, Skinner MK <dfn>Alterations in the developing testis   following embryonic vinclozolin exposure.</dfn> Reproductive Toxicology, 30(3):353-363, 2010.</p>
+					<p>Murdoch, BM., Clawson, ML., Yue, S., Basu, U., McKay, S., <strong>Settles, M.</strong>, Capoferri, R., Laegreid, WW., Williams, JL., Moore, SS. <dfn>PRNP Haplotype Associated with Classical BSE Incidence in European Holstein Cattle.</dfn> PLoS ONE, 5(9):6, 2010.</p>
+					<p>Murdoch, B., Clawson, M., Laegreid, W., Stothard, P., <strong>Settles, M.</strong>, and McKay, S., Prasad, A., Wang, Z., Moore, S., Williams, J. <dfn>A 2cM genome-wide scan of European Holstein cattle affected by classical BSE.</dfn> BMC Genetics, 11(1), 2010.</p>
+					<p>Tristan Coram, Huang Xueling, Gangming Zhan, <strong>Matthew L. Settles</strong>, Xianming Chen <dfn>Meta-analysis of transcripts associated with race-specific resistance to stripe rust in wheat demonstrates common induction of blue copper-binding protein, heat-stress transcription factor, pathogen-induced WIR1A protein, and ent-kaurene synthase transcripts.</dfn> Functional and Integrative Genomics, 10(3):383-392, 2010.</p>
 
-    <footer>
-      <div class="line"></div>
-        <p>Copyright 2011 - Matt Settles</p> <!-- Change the copyright notice -->
-        <a href="#" class="up">Go UP</a>
-    </footer>
-  </section> <!--! end of #page -->
+					<h3>2009</h3>
+					<p>Rosenblum EB, Poorten TJ, <strong>Settles M</strong>, Murdoch GK, Robert J, et al. <dfn>Genome-Wide Transcriptional Response of Silurana (Xenopus) tropicalis to Infection with the Deadly Chytrid Fungus</dfn>. PLoS ONE 4(8), 2009.</p> 
+					<p>Tristan E Coram, <strong>Matthew L Settles</strong>, Xianming Chen <dfn>Large-scale analysis of antisense transcription in wheat using the Affymetrix GeneChip Wheat Genome Array.</dfn> BMC Genomics, 10:253, 2009.</p>
+					<p><strong>Settles, M.</strong>, Zanella, R., Neigbergs, H. <dfn>Whole Genome Association Analysis of Johne's Disease in 4 US dairys using the Illumina BovineSNP50 50k SNP chip.</dfn> Animal Genetics, 40(5):655:662, 2009.</p>
 
+					<h3>2008</h3>
+					<p>Robert E Drew, Kenneth J. Rodnick, <strong>Matthew L Settles</strong>, Jurij Wacyk, Erin J Churchill, Madison S. Powell, Ronald W Hardy, Gordon K Murdoch, Rodney A. Hill, and Barrie D Robison <dfn>Effect of Starvation on Gene Expression in Multiple Tissues of Zebrafish.</dfn> Physiological Genomics 35:283-295, 2008.</p>
+					<p>Coram, T., <strong>Settles, M.</strong>, Wang, M, Chen, X, <dfn>Surveying expression level polymorphism and single-feature polymorphism in near-isogenic wheat lines differing for the Yr5  stripe rust resistance locus.</dfn> TAG Theoretical and Applied Genetics, 117(3), 2008.</p>
+					<p>Barrie D. Robison, Robert E. Drew, Gordon K. Murdoch, Madison Powell, Kenneth J. Rodnick, <strong>Matt Settles</strong>, David Stone, Erin Churchill, Rodney A. Hill, Madhusudhan R. Papasani, Solange S. Lewis, Ronald W. Hardy, <dfn>Sexual dimorphism in hepatic gene expression and the response to dietary carbohydrate manipulation in the zebrafish (Danio rerio).</dfn> Comparative Biochemistry and Physiology Part D: Genomics and Proteomics, 3(2):141-154, 2008.</p>
+					<p>Coram, T., <strong>Settles, M.</strong>, Chen, X, <dfn>Transcriptome analysis of high-temperature adult-plant resistance conditioned by Yr39 during the wheat-Puccinia striiformis f. sp. tritici interaction.</dfn> Molecular Plant Pathology, 9(4), 2008.</p>
 
-  <!-- JavaScript at the bottom for fast page loading -->
+					<h3>2005</h3>
+					<p><strong>Settles, M.</strong>, Soule, T. <dfn>Choosing an Algorithm: An Experimental Comparison of the Genetic Algorithm and Binary Particle Swarm.</dfn> Proceedings of the $17^{th}$ IMACS World Congress on Scientific Computation, Applied Mathematics and Simulation. Paris, France, 11-15 July 2005.</p>
+					<p><strong>Settles, M.</strong>, Soule, T. <dfn>Breeding Swarms: A GA/PSO Hybrid.</dfn> In Proceeding of the Genetic and Evolutionary Computation Conference (GECCO-2005). Washington D.C., 25-29 June 2005. ASME Press.</p>
+					<p><strong>Settles, M.</strong>, Nathan, P., Soule, T. <dfn>Breeding Swarms: A New Approach to Recurrent Neural Network Training.</dfn> In Proceeding of the Genetic and Evolutionary Computation Conference (GECCO-2005). Washington D.C., 25-29 June 2005. ASME Press.</p>
 
-  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
-  <!-- Smooth Scrolling with jquery.scollTo-min.js -->
-  <script src="js/mylibs/jquery.scrollTo-1.4.2/jquery.scrollTo-min.js"></script>
+					<h3>2003</h3>
+					<p><strong>Settles, M.</strong>, Soule, T. <dfn>A Hybrid GA/PSO to Evolve Artificial Recurrent Neural Networks.</dfn> C. Dagli and et al., eds. In Intelligent Engineering Systems Through Artificial Neural Networks (ANNIE-2003), 13:51-56, St. Louis, Missouri, 2-5 Nov. 2003. ASME Press.</p>
 
-  <!-- scripts concatenated and minified via ant build script-->
-  <script defer src="js/plugins.js"></script>
-  <script defer src="js/script.js"></script>
-  <!-- end scripts-->
+					<h3>2002</h3>
+					<p><strong>Settles, M.</strong>, and Rylander, B. <dfn>Neural network learning using particle swarm optimizers.</dfn> Zemliak, A. and Mastorakis, N., eds. In Advances in Information Science and Soft Computing, pages 224-226. Cancun, Mexico, June 2002. WSEAS Press.</p>
+				</div>
+			</article>
+			<!-- publications end -->
+			<div class="clearfix"></div>
+		</div>
 
-	
-  <!-- Change UA-XXXXX-X to be your site's ID -->
+		<!-- Footer section -->
+		<footer>
+			<nav> <!-- The nav link semantically marks your main site navigation -->
+				<ul>
+					<li><a href="#contact">Contact</a></li>
+					<li><a href="#research">Research/Interests</a></li>
+					<li><a href="#courses">Courses</a></li>
+					<li><a href="#software">Software</a></li>
+					<li><a href="#links">Links</a></li>
+					<li><a href="#publications">Publications</a></li>
+				</ul>
+			</nav>
+			<div class="clearfix"></div>
+			<div class="line"></div>
+			<p>Copyright 2011 - Matt Settles</p> <!-- Change the copyright notice -->
+			<a href="#" class="up">Go UP</a>
+		</footer>
+	</section> <!--! end of #page -->
 
-  <script>
-    window._gaq = [['_setAccount','UA-28001006-1'],['_trackPageview'],['_trackPageLoadTime']];
-    Modernizr.load({
-      load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
-    });
-  </script>
+	<!-- JavaScript at the bottom for fast page loading -->
 
-  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
-       chromium.org/developers/how-tos/chrome-frame-getting-started -->
-  <!--[if lt IE 7 ]>
-    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
-    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
-  <![endif]-->
-  
+	<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+	<!-- Smooth Scrolling with jquery.scollTo-min.js -->
+	<script src="js/mylibs/jquery.scrollTo-1.4.2/jquery.scrollTo-min.js"></script>
+
+	<!-- scripts concatenated and minified via ant build script-->
+	<script defer src="js/plugins.js"></script>
+	<script defer src="js/script.js"></script>
+	<!-- end scripts-->
+
+<!-- Change UA-XXXXX-X to be your site's ID -->
+	<script>
+		window._gaq = [['_setAccount','UA-28001006-1'],['_trackPageview'],['_trackPageLoadTime']];
+		Modernizr.load({
+			load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
+		});
+	</script>
+
+	<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+		chromium.org/developers/how-tos/chrome-frame-getting-started -->
+	<!--[if lt IE 7 ]>
+	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+	<script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+	<![endif]-->
+
 </body>
 </html>

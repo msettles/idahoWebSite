@@ -263,10 +263,16 @@ footer .line{
 	margin:2em 0;
 }
 
+nav:before, nav:after { 
+	content: "";
+	display: block;
+}
+nav:after { clear: both; }
+
 nav{
   background:#f8f8f8;
   padding:0px 5px;
-  text-align:right;
+  clear:both;;
 /*  position:absolute;
   right:0;
   top:4em;
@@ -282,7 +288,9 @@ nav ul, nav ol {
 	list-style: none; 
 	list-style-image: none; 
 	margin: 0; 
-	padding: 0; }
+	padding: 0;
+	float:right;
+}
 
 nav ul li{
   display:inline;
@@ -294,7 +302,7 @@ nav ul li a,
 nav ul li a:visited{
   color:#b18e5f;
   display:block;
-  float:right;
+  float:left;
   font-size:1.25em;
   font-weight:bold;
   margin:5px 2px;
@@ -334,6 +342,7 @@ nav, article, nav ul li a, figure{
 
 article{
   background:#f8f8f8;
+  float:center;
   margin:0.5em 0;
   padding:10px;
   border:1px solid #FCFCFC;
@@ -343,7 +352,7 @@ article{
   box-shadow:0 1px 1px #333333;
 }
 
-#contact p { margin-top:0.2em ;margin-bottom:0.2em;}
+#contact p { margin-top:0.3em ;margin-bottom:0.3em;}
 
 /* Footer styling: */
 footer{
