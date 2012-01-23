@@ -1,0 +1,11 @@
+\beamer@endinputifotherversion {3.12pt}
+\beamer@sectionintoc {1}{Raw Data}{3}{0}{1}
+\beamer@sectionintoc {2}{Quality Assurance}{4}{0}{2}
+\beamer@subsectionintoc {2}{1}{Chip Images}{5}{0}{2}
+\beamer@subsectionintoc {2}{2}{Consistency}{6}{0}{2}
+\beamer@subsectionintoc {2}{3}{Expectations}{9}{0}{2}
+\beamer@sectionintoc {3}{Preprocessing}{10}{0}{3}
+\beamer@subsectionintoc {3}{1}{Algorithms}{12}{0}{3}
+\beamer@subsectionintoc {3}{2}{QA preprocessing}{13}{0}{3}
+\beamer@sectionintoc {4}{Analysis Setup}{15}{0}{4}
+\beamer@sectionintoc {5}{Public Repositories}{17}{0}{5}
