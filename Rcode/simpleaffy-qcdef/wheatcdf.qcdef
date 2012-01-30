@@ -1,0 +1,11 @@
+array wheatcdf
+alpha1 0.05 
+alpha2 0.065 
+spk bioB AFFX-BioB-3_at 
+spk bioC AFFX-BioC-3_at 
+spk bioD AFFX-BioDn-3_at 
+spk creX AFFX-CreX-3_at 
+ratio actin3/actin5 AFFX-Ta-actin-3_at AFFX-Ta-actin-5_at 
+ratio actin3/actinM AFFX-Ta-actin-3_at AFFX-Ta-actin-M_at 
+ratio gapdh3/gapdh5 AFFX-Ta-gapdh-3_at AFFX-Ta-gapdh-5_at 
+ratio gapdh3/gapdhM AFFX-Ta-gapdh-3_at AFFX-Ta-gapdh-M_at 

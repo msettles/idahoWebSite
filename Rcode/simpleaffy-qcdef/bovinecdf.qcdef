@@ -1,0 +1,11 @@
+array bovinecdf
+alpha1 0.05 
+alpha2 0.065 
+spk bioB AFFX-BioB-3_at 
+spk bioC AFFX-BioC-3_at 
+spk bioD AFFX-BioDn-3_at 
+spk creX AFFX-CreX-3_at 
+ratio actin3/actin5 AFFX-Bt-actin-3_at AFFX-Bt-actin-5_at 
+ratio actin3/actinM AFFX-Bt-actin-3_at AFFX-Bt-actin-M_at 
+ratio gapdh3/gapdh5 AFFX-Bt-gapd-3_at AFFX-Bt-gapd-5_at 
+ratio gapdh3/gapdhM AFFX-Bt-gapd-3_at AFFX-Bt-gapd-M_at 

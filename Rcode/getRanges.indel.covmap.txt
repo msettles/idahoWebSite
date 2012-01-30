@@ -1,0 +1,29 @@
+
+
+getRanges <- function(seq,ref){
+  seqd <- setdiff(seq,ref)
+  refd <- setdiff(ref,seq)
+  refRanges <- integer(0)
+  seqRanges <- integer(0)
+  if (length(refd) != 0){
+    refRanges <- c(refd[1],refd[sort(c(which(diff(refd)!=1),which(diff(refd)!=1)+1))],refd[length(refd)])
+    refRanges <- matrix(refRanges,ncol=2,byrow=T)
+    refRanges <- cbind(refRanges,refRanges[,2] - refRanges[,1])
+    colnames(refRanges) <- c("Start","Stop","Length")
+  }
+  if (length(seqd) != 0){
+    seqRanges <- c(seqd[1],seqd[sort(c(which(diff(seqd)!=1),which(diff(seqd)!=1)+1))],seqd[length(seqd)])
+    seqRanges <- matrix(seqRanges,ncol=2,byrow=T)
+    seqRanges <- cbind(seqRanges,seqRanges[,2] - seqRanges[,1])
+    colnames(seqRanges) <- c("Start","Stop","Length")
+  }
+  list(Deletions=refRanges, Insertions=seqRanges)
+}
+
+
+getRanges(y1.cov$V1,1:9139763)
+getRanges(y2.cov$V1,1:9139763)
+getRanges(t1.cov$V1,1:9139763)
+getRanges(t2.cov$V1,1:9139763)
+
+

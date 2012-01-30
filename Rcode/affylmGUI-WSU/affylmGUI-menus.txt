@@ -1,0 +1,72 @@
+# affylmGUI Menu Definitions
+
+# last modified 18 Dec 03 by J. Wettenhall
+
+# Based on Rcmdr-menus.txt from the Rcmdr package by John Fox,
+
+#   type    menu/item      operation/parent  label                                          command/menu
+
+    menu    fileMenu        topMenu         ""                                              ""
+    item    fileMenu        command         "New     Ctrl+N"                                NewLimmaFile
+    item    fileMenu        command         "Open    Ctrl+O"                                OpenLimmaFile
+    item    fileMenu        command         "Save    Ctrl+S"                                SaveLimmaFile
+    item    fileMenu        command         "Save As"                                    		SaveAsLimmaFile
+    item    fileMenu        separator       ""                                              ""
+    item    fileMenu        command         "Export Normalized Expression Values"           ExportNormalizedExpressionValues
+    item    fileMenu        command         "Export TopTable (differentially expressed genes)" ExportTopTable
+    item    fileMenu        command         "Export HTML Report"                            ExportHTMLreport
+    item    fileMenu        separator       ""                                              ""
+    item    fileMenu        command         "Working Directory"                             SetWD
+    item    fileMenu        separator       ""                                              ""
+    item    fileMenu        command         "Exit"                                          onExit
+    item    topMenu         cascade         "File"                                          fileMenu
+    menu    RNATargetsMenu  topMenu         ""                                              ""
+    item    RNATargetsMenu  command         "RNA Targets"                                   ViewRNATargets
+    item    topMenu         cascade         "RNA Targets"                                   RNATargetsMenu
+    menu    normalizeMenu   topMenu         ""                                              ""
+    item    normalizeMenu   command         "Quality Assurance Report"                      QualityAssurance
+    item    normalizeMenu   command         "Normalize"                                     NormalizeNow
+    item    normalizeMenu   command         "Export Normalized Expression Values"           ExportNormalizedExpressionValues
+    item    topMenu         cascade         "Normalization"                                 normalizeMenu
+    menu    linearModelMenu topMenu         ""                                              ""
+    item    linearModelMenu command         "Compute Linear Model Fit"                      ComputeLinearModelFit
+    item    linearModelMenu separator       ""                                              ""
+    item    linearModelMenu command         "Compute Contrasts"                             ComputeContrasts
+    item    linearModelMenu command         "View Existing Contrasts Parameterization"      ViewExistingContrastParameterization
+    item    linearModelMenu command         "Delete Contrasts Parameterization"             DeleteContrastParameterization
+    item    topMenu         cascade         "Linear Model"                                  linearModelMenu
+    menu    evaluateMenu    topMenu         ""                                              ""
+    item    evaluateMenu    command         "Evaluate R Code"                               evalRcode
+    item    topMenu         cascade         "Evaluate"                                      evaluateMenu
+    menu    toptableMenu    topMenu         ""                                              ""
+    item    toptableMenu    command         "Table of Genes Ranked in order of Differential Expression"   showTopTable
+    item    topMenu         cascade         "TopTable"                                      toptableMenu
+    menu    plotMenu        topMenu         ""                                              ""
+    item    plotMenu        command         "Intensity Density Plot"                        DensityPlotAll
+    item    plotMenu        command         "Raw Intensity Box Plot"                        RawIntensityBoxPlot
+    item    plotMenu        command         "Normalized Intensity Box Plot"                 NormalizedIntensityBoxPlot
+    item    plotMenu        command         "RNA Degradation Plot"                          RNADegradationPlotAll
+    item    plotMenu        command         "NUSE-Normalized Unscaled Std.Errors Plot"      NUSEPlotAll
+    item    plotMenu        command         "RLE-Relative Log Expression Plot"              RLEPlotAll
+    item    plotMenu        command         "Weights pseudo chip Image(s) Plot"             ImageQualityWeightPlot
+    item    plotMenu        command         "Residuals pseudo chip Image(s) Plot"           ImageQualityResidualPlot
+    item    plotMenu        command         "M A Plot (for two slides)"                     affyPlotMA
+    item    plotMenu        command         "Image Array Plot(One slide)"                   ImageArrayPlot
+    item    plotMenu        separator       ""                                              ""
+    item    plotMenu        command         "M A Plot (for one contrast)"                   affyPlotMAcontrast
+    item    plotMenu        command         "Quantile-Quantile t Statistic Plot (for one contrast)"  QQTplot
+    item    plotMenu        command         "Log Odds (Volcano) Plot (for one contrast)"    LogOddsPlot
+    item    plotMenu        command         "Heat Diagram"                                  HeatDiagramPlot
+    item    plotMenu        command         "Venn Diagram"                                  VennDiagramPlot
+    item    plotMenu        separator       ""                                              ""
+    item    plotMenu        command         "Options"                                       PlotOptions
+    item    topMenu         cascade         "Plot"                                          plotMenu
+    menu    helpMenu        topMenu         ""                                              ""
+    item    helpMenu        command         "affylmGUI Help"                                affylmGUIhelp
+    item    helpMenu        command         "affy Help"                                     affyHelp
+    item    helpMenu        command         "Limma Help"                                    limmaHelp
+    item    helpMenu        separator       ""                                              ""
+    item    helpMenu        command         "Citations"                                     showCitations
+    item    helpMenu        command         "ChangeLog"                                     showChangeLog
+    item    helpMenu        command         "About affylmGUI"                               AboutaffylmGUI
+    item    topMenu         cascade         "Help"                                          helpMenu

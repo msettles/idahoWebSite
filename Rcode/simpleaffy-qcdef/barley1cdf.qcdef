@@ -1,0 +1,11 @@
+array barley1cdf
+alpha1 0.05 
+alpha2 0.065 
+spk bioB AFFX-BioB-3_at 
+spk bioC AFFX-BioC-3_at 
+spk bioD AFFX-BioDn-3_at 
+spk creX AFFX-CreX-3_at 
+ratio actin3/actin5 Contig1390_3_s_at Contig1390_5_at 
+ratio actin3/actinM Contig1390_3_s_at Contig1390_M_at 
+ratio tubulin3/tubulin5 Contig333_3_x_at Contig333_5_at 
+ratio tubulin3/tubulinM Contig333_3_x_at Contig333_M_at 
