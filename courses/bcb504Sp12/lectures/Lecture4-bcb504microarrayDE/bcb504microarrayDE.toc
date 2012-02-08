@@ -1,0 +1,7 @@
+\beamer@endinputifotherversion {3.12pt}
+\beamer@sectionintoc {1}{Data filtering}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Affymetrix PMA Calls}{4}{0}{1}
+\beamer@sectionintoc {2}{Differential Expression}{7}{0}{2}
+\beamer@subsectionintoc {2}{1}{SAM}{9}{0}{2}
+\beamer@sectionintoc {3}{Variance Correction}{11}{0}{3}
+\beamer@sectionintoc {4}{Multiple Testing Correction}{12}{0}{4}
