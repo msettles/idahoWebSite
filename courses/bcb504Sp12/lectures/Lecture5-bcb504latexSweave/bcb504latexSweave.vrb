@@ -1,0 +1,4 @@
+\frametitle{LaTeX}
+  LaTeX is a set of macros build on top of TeX
+
+  LaTeX is based on the idea that authors should be able to focus on the content of what they are writing without being distracted by its visual presentation. In preparing a LaTeX document, the author specifies the logical structure using familiear concepts such as chapter, section, table, figure, etc., and lets the LaTeX system worry about the presentation of the structures. It therefor encourages the separation of layout from content while still allowing manual typesetting adjustments where needed. This is similar to how HTML with CSS works.
