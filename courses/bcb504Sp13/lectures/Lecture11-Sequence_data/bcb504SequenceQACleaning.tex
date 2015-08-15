@@ -1,0 +1,144 @@
+\documentclass[pdf]{beamer}
+\usepackage[latin1]{inputenc}
+\usepackage{multirow}
+\usetheme{Warsaw} %Warsaw
+\usecolortheme{seahorse}
+
+
+\begin{document}
+
+\title[Sequence Mapping]{Sequence QA and Cleaning}
+\subtitle{BCB 504: Applied Bioinformatics\\}
+\author[Matt Settles]{Matt Settles}
+\institute{University of Idaho\\ Bioinformatics and Computational Biology Program}
+\date{\today}
+
+
+%% Title page
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+
+%% Outline
+\begin{frame}[plain] 
+  \frametitle{Outline}
+  \tableofcontents
+\end{frame}
+
+\section{Folder structures and basic manipuation tools}
+\begin{frame}
+  \frametitle{Yeast dataset and folder structures}
+The Yeast dataset we will use for all project is located on the CRC servers:\\
+\alert{/mnt/home/uirig/user\_data/BCB504}
+\vspace{0.2in}
+There are 4 Roche 454 runs that include Yeast sample (see 454\_runs\_sample\_sheet for details) and 2 Illumina MiSeq runs that include Yeast Sample.\\
+\vspace{0.2in}
+The Yeast we sequenced was from Jill Johnson's lab (UI) and is a mutant of the W303 strain.
+\end{frame}
+
+\section{QA}
+\section{QA on raw data}
+\begin{frame}
+\frametitle{QA}
+Its best to perform QA on both the run as a whole (poor samples [barcodes] can affect other samples) and on the samples themselves. Reports (Basespace for Illumina) and Roche QA data in the SignalProcessing folder are great ways to evaluate the runs as a whole.
+\vspace{0.2in}
+QA on the sample data can occur using 3rd party applications that evaluate quality.\\
+for Roche, I have an R script that produces reports from Raw Sff files, available:\\
+\alert{/mnt/home/uirig/roche454/runQA-metrics.R}\\
+For Illumina, we currently use the fastqc application.\\
+\end{frame}
+
+
+\section{Cleaning reads}
+
+\begin{frame}
+\frametitle{Why Clean Reads}
+While it does not seem to be reported anywhere, we have found that "cleaning" your reads make a large difference to speed and quality of assembly and we suspect mapping results too.
+\vspace{0.2in}
+Cleaning your reads means, removing bases that are:
+\begin{itemize}
+\item not of primary interest (contamination)
+\item artificially added onto sequence of primary interest (vectors and adapters)
+\item low quality bases
+\item other unwanted sequence (polyA tails in RNA-seq data)
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+\frametitle{Cleaning reads, some strategies}
+\begin{itemize}
+\item \textbf{Quality trim/cut}
+\begin{itemize} 
+\item 'end' trim a read until the average quality $>$ Q (Lucy)
+\item remove any read with average quality $<$ Q
+\end{itemize}
+\item \textbf{eliminate singletons}
+\begin{itemize}
+\item If you have excess depth of coverage, and particularly if you have at least x-fold coverage where x is the read length, then eliminating singletons is a nice way of dramatically reducing the number of error-prone reads.
+\end{itemize}
+\item \textbf{eliminate all reads (pairs) containing an N}
+\begin{itemize}
+\item If you can afford the loss of coverage, you might throw away all reads containing Ns.
+\end{itemize}
+\item \textbf{Identity and trim off adapter and barcodes if present}
+\begin{itemize}
+\item Believe it or not, the software provided by Roche or Illumina, either does not look for, or does a mediocre job of, identifing adapter and removing them.
+\end{itemize}
+\item \textbf{Identity and remove contaminant and vector reads}
+\begin{itemize}
+\item Reads which appear to fully come from extraneous sequence should be removed.
+\end{itemize}
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{seqyclean}
+Seqyclean is an application created by Ilya (in class) that employs most of the techniques described above. It can be found:\\
+\vspace{0.2in}
+\href{http://cores.ibest.uidaho.edu/software/seqyclean}{seqyclean}\\
+\vspace{0.2in}
+and is installed on the IBEST CRC servers in the grc module.
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{scriptsize}
+\begin{verbatim}
+====================Summary Statistics====================
+Reads analyzed: 1068653, Bases:521817306
+Found ->
+Left mid tag: 1068653, 100%
+Right mid tag: 1067064, 99.8513%
+# of reads with vector: 1065914, 99.7437%
+Reads left trimmed ->
+By adapter: 20962
+By quality: 7465
+By vector: 323056
+Average left trim length: 29.3128 bp
+Reads right trimmed ->
+By adapter: 115195
+By quality: 234603
+By vector: 924
+Average right trim length: 175.871 bp
+Reads discarded: 740919 ->
+By read length: 740919
+--------------------------------------------------------
+Reads accepted: 327734, %30.668
+Average trimmed length: 325.645 bp
+==========================================================
+Program finished.
+Elapsed time = 1.512389e+03 seconds
+\end{verbatim}
+\end{scriptsize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Cleaning as QA}
+Beyond generating better data for downstream analysis, cleaning statistics also give you an idea as to the quality of the sample, library generation, and sequencing technique used to generate the data. It can help inform you of what you might do in the future.
+\end{frame}
+
+
+
+\end{document}

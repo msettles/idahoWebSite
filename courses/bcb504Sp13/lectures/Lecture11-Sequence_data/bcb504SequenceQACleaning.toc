@@ -1,0 +1,5 @@
+\beamer@endinputifotherversion {3.20pt}
+\beamer@sectionintoc {1}{Folder structures and basic manipuation tools}{3}{0}{1}
+\beamer@sectionintoc {2}{QA}{4}{0}{2}
+\beamer@sectionintoc {3}{QA on raw data}{4}{0}{3}
+\beamer@sectionintoc {4}{Cleaning reads}{5}{0}{4}

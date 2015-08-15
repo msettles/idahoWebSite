@@ -1,0 +1,8 @@
+\frametitle{History - \TeX}
+  \TeX{} (= tau epsilon chi, and pronounced similar to "blecch"), current version 3.1415926.\\
+\vspace{1cm}
+  In the late 1970s, Donald Knuth was revising the second volume of his multivolume magnum opus "\textit{The Art of Computer Programming}", got the galleys, looked at them, and said (approximately) "blecch"! Around the same time, he saw a new book by Patrick Winston that had been produced digitally, and ultimately realized that typesetting meant arranging 0's and 1's (ink and no int) in the propper pattern, and said (approximately),
+\begin{quote}
+As a computer scientist, I really identify with patterns of 0's and  1's; I ought to be able to do something about this
+\end{quote}
+, so he said out that were the traditional rules for typesetting math, what constituted good typography, and as much as he could about type design. A project he originally thought would take 6 months ended up taking almost 10 years.

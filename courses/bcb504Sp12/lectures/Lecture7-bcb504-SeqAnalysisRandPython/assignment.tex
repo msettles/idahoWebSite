@@ -1,0 +1,41 @@
+\documentclass{article}
+\usepackage{Sweave}
+\begin{document}
+
+
+
+\section*{Exercise 1}
+\begin{itemize}
+\item Generate a random DNAString of length 2000. (You will need: sample(), DNA\_BASES, paste(), DNAString().)
+\item Create views on it.
+\item Invert the views.
+\item Count the frequencies of the DNA letters: (a) in the DNAString object, (b) inside the views, (c) outside the views. Do a sanity check.
+\end{itemize}
+
+\section*{Exercise 2}
+\begin{itemize}
+\item Load Affymetrix hgu95av2 probe sequences into a DNAStringSet object.
+\item Remove the first 10 probes.
+\item Which probes contain more than 16 A's?
+\item Reverse complement the probes.
+\item Trim the first (5') and last (3') two bases.
+\item Generate the sequences of the mismatch probes (MM probes) by replacing the middle nucleotide of each PM probe by its reverse complement.
+\item Which probes contain more than 9 consecutive A's? (You can use vcount- Pattern() for this.) Display their sequences.
+\end{itemize}
+
+\section*{Exercise 3}
+\begin{itemize}
+\item Load BSgenome data package for hg19.
+\item Count the number of times each Affymetrix hgu95av2 probe hits Human chr22. (You will need: PDict(), countPDict().)
+\item Which probes have more than 2000 hits? Display their sequences.
+???\end{itemize}
+
+\section*{Exercise 4}
+The goal of this exercise is to count the nb of times each Human transcript is hit by a hgu95av2 probe. We use the TxDb.Hsapiens.UCSC.hg19.knownGene package for the locations of the transcripts and their exons.
+\begin{itemize}
+\item Extract the Human transcriptome with extractTranscriptsFromGenome() (defined in the GenomicFeatures package).
+\item Use vcountPDict() (with 'collapse=2') to count the nb of hits per tran-script.
+\end{itemize}
+
+
+\end{document}

@@ -1,0 +1,44 @@
+\documentclass{article}
+\begin{document}
+
+
+\title{DNA sequence assembly project}
+
+\maketitle
+
+Assignment: for an Illumina ecoli dataset, a Roche 454 ecoli dataset and a mixed 454/Illumina Toxoplasma gondii dataset, clean the sequencing reads, assemble the genomes, map the reads back to genomes, find variants (if any), determine closest relative (by sequence similarity), annotate (computationally).\\
+Data can be found on the central server:
+\begin{verbatim}
+/mnt/home/uirig/user_data/BCB504
+\end{verbatim}
+
+Submit one latex/sweave report for the entire project (ie. part 2 should continue part 1, etc.). The report should include full details of the analysis and the results, as if written in a publication. Finally, include a section that details individual contribution to the analysis/report. 
+
+
+\section*{Part 1: Clean the reads}
+\textbf{Due Wed April 2nd}\\
+\begin{itemize}
+\item Perform Quality Assurance of the reads
+\item Removing, or trim, poor quality reads
+\item Use of R/Python, sfffile, sffinfo
+\end{itemize}
+
+\section*{Part 2: Assemble the genomes}
+\textbf{Due Fri April 13th}\\
+\begin{itemize}
+\item Assembly and optimize the assembly (maximize the metrics)
+\item What are the details about the assembly (genome size, coverage, illumina insert sizes, etc.)
+\end{itemize}
+
+\section*{Part 3: Map the reads, find variants, annotate}
+\textbf{Due Fri April 22nd}\\
+\begin{itemize}
+\item Map the reads back to the assembly.
+\item report the details (\% of reads that map).
+\item are there variants.
+\item What is the closest public genome.
+\item annotate the genomes. 
+\end{itemize}
+
+
+\end{document}

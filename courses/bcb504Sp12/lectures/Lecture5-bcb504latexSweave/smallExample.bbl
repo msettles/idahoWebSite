@@ -1,0 +1,12 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{TCV{\etalchar{+}}}
+
+\bibitem[TCV{\etalchar{+}}]{Turner2011}
+Glenn Turner, Daniel Cuthbertson, Siau Voo, Matthew Settles, Howard Grimes, and
+  B.~Lange.
+\newblock Experimental sink removal induces stress responses, including shifts
+  in amino acid and phenylpropanoid metabolism, in soybean leaves.
+\newblock {\em Planta}, pages 1--16.
+\newblock 10.1007/s00425-011-1551-4.
+
+\end{thebibliography}

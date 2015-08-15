@@ -1,0 +1,15 @@
+\BOOKMARK [2][]{Outline0.1}{Analysis Setup}{}% 1
+\BOOKMARK [2][]{Outline0.2}{Raw Data}{}% 2
+\BOOKMARK [2][]{Outline0.3}{Quality Assurance}{}% 3
+\BOOKMARK [3][]{Outline0.3.1.7}{Chip Images}{Outline0.3}% 4
+\BOOKMARK [3][]{Outline0.3.2.8}{Consistency}{Outline0.3}% 5
+\BOOKMARK [3][]{Outline0.3.3.10}{Expectations}{Outline0.3}% 6
+\BOOKMARK [2][]{Outline0.4}{Preprocessing}{}% 7
+\BOOKMARK [3][]{Outline0.4.1.13}{Algorithms}{Outline0.4}% 8
+\BOOKMARK [3][]{Outline0.4.2.14}{QA preprocessing}{Outline0.4}% 9
+\BOOKMARK [2][]{Outline0.5}{Robust Multichip Averaging \(RMA\)}{}% 10
+\BOOKMARK [2][]{Outline0.6}{Data filtering}{}% 11
+\BOOKMARK [2][]{Outline0.7}{Differential Expression}{}% 12
+\BOOKMARK [3][]{Outline0.7.1.23}{Variance Stabilization}{Outline0.7}% 13
+\BOOKMARK [3][]{Outline0.7.2.24}{Multiple Testing Correction}{Outline0.7}% 14
+\BOOKMARK [2][]{Outline0.8}{Public Repositories}{}% 15

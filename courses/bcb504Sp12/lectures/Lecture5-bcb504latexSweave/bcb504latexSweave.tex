@@ -1,0 +1,105 @@
+\documentclass[pdf]{beamer}
+\usepackage[latin1]{inputenc}
+\usepackage{multirow}
+\usetheme{Warsaw} %Warsaw
+\usecolortheme{dove}
+\usepackage{hyperref}
+\hypersetup{pdfpagemode=FullScreen, colorlinks=true}
+
+\begin{document}
+
+\title[\LaTeX and Sweave]{\LaTeX and Sweave}
+\subtitle{BCB 504: Applied Bioinformatics\\}
+\author[Matt Settles]{Matt Settles}
+\institute{University of Idaho\\ Bioinformatics and Computational Biology Program}
+\date{\today}
+
+
+%% Title page
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+
+%% Outline
+\begin{frame}[plain] 
+  \frametitle{Outline}
+  \tableofcontents
+\end{frame}
+
+\section{\TeX{}, \LaTeX and BibTeX}
+\subsection{What is \TeX{}, \LaTeX and BibTeX}
+\begin{frame}
+  \frametitle{What is \TeX{}, \LaTeX and BibTeX}
+\TeX{} with \LaTeX{} and BibTeX macros are a high-quality typesetting system; it includes features designed for the production of technical and scientific documentation. \LaTeX{} is the de facto standard for the communication and publication of scientific documents. BibTeX is a tool and file format used to describe and process references.
+\end{frame}
+
+\subsection{\TeX}
+\begin{frame}[allowframebreaks,fragile]
+\frametitle{History - \TeX}
+  \TeX{} (= tau epsilon chi, and pronounced similar to "blecch"), current version 3.1415926.\\  
+\vspace{1cm}
+  In the late 1970s, Donald Knuth was revising the second volume of his multivolume magnum opus "\textit{The Art of Computer Programming}", got the galleys, looked at them, and said (approximately) "blecch"! Around the same time, he saw a new book by Patrick Winston that had been produced digitally, and ultimately realized that typesetting meant arranging 0's and 1's (ink and no int) in the propper pattern, and said (approximately), 
+\begin{quote}
+As a computer scientist, I really identify with patterns of 0's and 	1's; I ought to be able to do something about this
+\end{quote}
+, so he said out that were the traditional rules for typesetting math, what constituted good typography, and as much as he could about type design. A project he originally thought would take 6 months ended up taking almost 10 years.
+\end{frame}
+
+\subsection{\LaTeX}
+\begin{frame}%[allowframebreaks,fragile]
+  \frametitle{\LaTeX}
+ \LaTeX{} is a set of macros build on top of TeX (current version is \LaTeX 2e, but \LaTeX 3 is close to being ready.)\\
+\vspace{1cm}
+ \LaTeX{} is based on the idea that authors should be able to focus on the content of what they are writing without being distracted by its visual presentation. In preparing a \LaTeX{} document, the author specifies the logical structure using familiear concepts such as chapter, section, table, figure, etc., and lets the \LaTeX{} system worry about the presentation of the structures. It therefor encourages the separation of layout from content while still allowing manual typesetting adjustments where needed. This is similar to how HTML with CSS works.
+\end{frame}
+
+\subsection{BibTeX}
+\begin{frame}
+  \frametitle{BibTeX}
+  BibTeX is a reference management software for formatting lists of references. The BibTeX tool can be used together with the \LaTeX document preparation system.
+  
+BibTeX makes it easy to cite sources in a consistent manner, by separating bibliographic information from the presentation of this information. 
+\end{frame}
+
+\section{Reproducible Research}
+
+\begin{frame}
+  \frametitle{Reproducible Research}
+Employing methods for reproducable research will help us by:
+\begin{itemize}
+\item Reproducing figures in the revisions of a paper, to create earlier results again in a later stage of our research, etc.
+\item Helping other people who want to do research in the field start from the current state of the art, instead of spending months trying to figure out what was exactly done in a certain paper. It is much easier to take up someone else's work if documented code is also available.
+\item It highly simplifies the task of comparing a new method to existing methods. Results can be compared more easily, and one is also sure that the implementation is the correct one.
+\end{itemize}
+\end{frame}
+
+
+\subsection{Sweave}
+\begin{frame}
+  \frametitle{Sweave and Reproducible Research}
+  Sweave is a tool in the statistical programming language R that enables integration of R code into \LaTeX. The purpose is 
+\begin{quote}
+ to create dynamic reports, or publications, which can be updated automatically if data or analysis change.
+\end{quote}  
+Because Sweave files together with any external R files that might be sourced from them and the data files contain all the information necessary to trace back all steps of the data analysis, Sweave also has the potential to make research more transparent and reproducible to others.
+\end{frame}
+
+\section{Web Resources}
+\begin{frame}
+  \frametitle{\LaTeX Resources}
+  \begin{itemize}
+  \item Main site: \url{http://www.LaTeX-project.org/}
+  \item TeX User Group (tug): \url{http://www.tug.org/}
+  \item Comprehensive TeX Archival Network: \url{http://www.ctan.org/}
+  \item BibTeX: \url{http://www.bibtex.org}
+  \item \LaTeX for Biologists: \url{http://www.lecb.ncifcrf.gov/~toms/latex.html}
+  \item CRAN task view for reproducable research: \url{http://http://cran.r-project.org/web/views/ReproducibleResearch.html}
+  \item Sweave: \url{http://www.stat.uni-muenchen.de/~leisch/Sweave/}
+  \end{itemize}
+  
+\end{frame}
+
+
+
+\end{document}

@@ -1,0 +1,16 @@
+\beamer@endinputifotherversion {3.20pt}
+\beamer@sectionintoc {1}{Analysis Setup}{3}{0}{1}
+\beamer@sectionintoc {2}{Raw Data}{5}{0}{2}
+\beamer@sectionintoc {3}{Quality Assurance}{6}{0}{3}
+\beamer@subsectionintoc {3}{1}{Chip Images}{7}{0}{3}
+\beamer@subsectionintoc {3}{2}{Consistency}{8}{0}{3}
+\beamer@subsectionintoc {3}{3}{Expectations}{10}{0}{3}
+\beamer@sectionintoc {4}{Preprocessing}{11}{0}{4}
+\beamer@subsectionintoc {4}{1}{Algorithms}{13}{0}{4}
+\beamer@subsectionintoc {4}{2}{QA preprocessing}{14}{0}{4}
+\beamer@sectionintoc {5}{Robust Multichip Averaging (RMA)}{16}{0}{5}
+\beamer@sectionintoc {6}{Data filtering}{20}{0}{6}
+\beamer@sectionintoc {7}{Differential Expression}{22}{0}{7}
+\beamer@subsectionintoc {7}{1}{Variance Stabilization}{23}{0}{7}
+\beamer@subsectionintoc {7}{2}{Multiple Testing Correction}{24}{0}{7}
+\beamer@sectionintoc {8}{Public Repositories}{26}{0}{8}

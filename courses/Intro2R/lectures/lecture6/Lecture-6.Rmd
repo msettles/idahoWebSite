@@ -1,0 +1,237 @@
+R for Biologists - An Introduction to R (Lecture 5)
+========================================================
+
+Classes, generic functions and object orientation
+--------------------------------------------------------
+-----------------------------------
+
+The class of an object determines how it will be treated by what are known as generic functions. Put the other way round, a generic function performs a task or action on its arguments specific to the class of the argument itself. If the argument lacks any class attribute, or has a class not catered for specifically by the generic function in question, there is always a default action provided.
+
+An example makes things clearer. The class mechanism offers the user the facility of designing and writing generic functions for special purposes. Among the other generic functions are `plot()` for displaying objects graphically, `summary()` for summarizing analyses of various types, and `anova()` for comparing statistical models.
+
+The number of generic functions that can treat a class in a specific way can be quite large. For example, the functions that can accommodate in some fashion objects of class "data.frame" include
+
+     [     [[<-    any    as.matrix
+     [<-   mean    plot   summary
+A currently complete list can be got by using the methods() function:
+
+```
+methods(class="data.frame")
+```
+
+Conversely the number of classes a generic function can handle can also be quite large. For example the plot() function has a default method and variants for objects of classes "data.frame", "density", "factor", and more. A complete list can be got again by using the methods() function:
+```{r}
+methods(plot)
+```
+For many generic functions the function body is quite short, for example
+
+```{r}
+coef
+```
+
+The presence of UseMethod indicates this is a generic function. To see what methods are available we can use methods()
+```{r}
+methods(coef)
+```
+
+In this example there are six methods, none of which can be seen by typing its name. We can read these by either of
+
+```{r}
+getAnywhere("coef.aov")
+```
+```{r}
+getS3method("coef", "aov")
+```
+
+### S4 classes for Object Orientation
+S4 classes and methods are implemented in the `methods` package. The core components: classes, generic functions and methods.
+
+
+#### Classes
+The class deﬁnes the structure of an object. The instances of that class represent the objects themselves. Classes can provide an abstraction of complex objects that helps to simplify programming with them. Objects inside of a class are termed slots. A class can extend one or more other classes. The extended classes are considered to be parents of the class that extends them. Extension means that the new class will contain all of the slots that the parent classes have. It is an error to create a class with duplicate slot names (either by inclusion or directly). Classes are something designed by programmers and implemented in packages.
+
+classes can be generated:
+
+From a dataset
+```{r}
+library(graph)
+data(apopGraph)
+apopGraph
+```
+
+you can retrieve the class of an object by using the function `class`
+```{r}
+class(apopGraph)
+```
+
+From using the constructor
+```{r}
+library(IRanges)
+IRanges(start=c(101, 25), end=c(110, 80))
+```
+
+
+From a coercion
+```{r}
+library(Matrix)
+m <- matrix(3:-4, nrow=2)
+class(m)
+as(m, "Matrix")
+```
+
+From using a specialized high-level constructor
+```{r}
+library(GenomicFeatures)
+makeTranscriptDbFromUCSC("sacCer2", tablename="ensGene")
+```
+
+From a high level I/O function
+```{r}
+library(ShortRead)
+lane1 <- readFastq(system.file("extdata","s_1_sequence.txt",package="Biostrings"))
+lane1
+```
+
+What ojects are stored in a class can be seen by using the fuction `slotNames`, and these objects can be accessed using the accessor operator `@`, however you should never need to use the accessor operator, but instead use the programmer provided acceesor functions.
+```{r}
+slotNames(lane1)
+lane1@sread
+sread(lane1)
+```
+
+
+#### Low-level: getter and setter functions (accessor and assignments)
+Typically class developers will define accessor functions for each class slot (unless they want to keep it hidden) and for those slots that are mutable assignment functions. 
+```{r}
+ir <- IRanges(start=c(101, 25), end=c(110, 80))
+ir
+width(ir)
+width(ir) <- width(ir) - 5
+ir
+names(ir) <- c("range1","range2")
+ir
+```
+
+#### High-level: plenty of specialized methods
+```{r}
+qa1 <- qa(lane1, lane="lane1")
+class(qa1)
+report(qa1)
+```
+
+
+Graphical Proceedures
+------------------------------------------------------
+-----------------------------------
+
+Graphical facilities are an important and extremely versatile component of the R environment. It is possible to use the facilities to display a wide variety of statistical graphs and also to build entirely new types of graph.
+
+At startup time R initiates a graphics device driver which opens a special graphics window for the display of interactive graphics. Although this is done automatically, it is useful to know that the command used is X11() under UNIX, windows() under Windows and quartz() under Mac OS X.
+
+Once the device driver is running, R plotting commands can be used to produce a variety of graphical displays and to create entirely new kinds of display.
+
+Plotting commands are divided into three basic groups:
+
+* High-level plotting functions create a new plot on the graphics device, possibly with axes, labels, titles and so on.
+* Low-level plotting functions add more information to an existing plot, such as extra points, lines and labels.
+* Interactive graphics functions allow you interactively add information to, or extract information from, an existing plot, using a pointing device such as a mouse.
+In addition, R maintains a list of graphical parameters which can be manipulated to customize your plots.
+
+### High-level plotting commands
+High-level plotting functions are designed to generate a complete plot of the data passed as arguments to the function. Where appropriate, axes, labels and titles are automatically generated (unless you request otherwise.) High-level plotting commands always start a new plot, erasing the current plot if necessary.
+
+One of the most frequently used plotting functions in R is the `plot()` function. This is a generic function: the type of plot produced is dependent on the type or class of the first argument. Other examples of high-level plotting commands include: pairs and coplot (for multi-variate data), qqnorm, hist, dotchart, image, contour, persp.
+
+```{r}
+example(qqnorm)
+```
+
+### Low-level plotting commands
+
+Sometimes the high-level plotting functions don't produce exactly the kind of plot you desire. In this case, low-level plotting commands can be used to add extra information (such as points, lines or text) to the current plot.
+
+Some of the more useful low-level plotting functions are: points, lines. Adds points or connected lines to the current plot. plot()'s type= argument can also be passed to these functions (and defaults to "p" for points() and "l" for lines().) text(x, y, labels), will add text to a plot at points given by x, y. Normally labels is an integer or character vector in which case labels[i] is plotted at point (x[i], y[i]). The default is 1:length(x). the variations abline(a, b), abline(h=y), abline(v=x), abline(lm.obj) will add a line of slope b and intercept a to the current plot. h=y may be used to specify y-coordinates for the heights of horizontal lines to go across a plot, and v=x similarly for the x-coordinates for vertical lines. Also lm.obj may be list with a coefficients component of length 2 (such as the result of model-fitting functions,) which are taken as an intercept and slope, in that order. 
+
+polygon(x, y, ...) draws a polygon defined by the ordered vertices in (x, y) and (optionally) shade it in with hatch lines, or fill it if the graphics device allows the filling of figures. 
+
+legend(x, y, legend, ...) adds a legend to the current plot at the specified position. Plotting characters, line styles, colors etc., are identified with the labels in the character vector legend. At least one other argument v (a vector the same length as legend) with the corresponding values of the plotting unit must also be given, as follows:
+
+title(main, sub). adds a title main to the top of the current plot in a large font and (optionally) a sub-title sub at the bottom in a smaller font. 
+axis(side, ...) adds an axis to the current plot on the side given by the first argument (1 to 4, counting clockwise from the bottom.) Other arguments control the positioning of the axis within or beside the plot, and tick positions and labels. Useful for adding custom axes after calling plot() with the axes=FALSE argument.
+Low-level plotting functions usually require some positioning information (e.g., x and y coordinates) to determine where to place the new plot elements. Coordinates are given in terms of user coordinates which are defined by the previous high-level graphics command and are chosen based on the supplied data.
+
+### Using graphics parameters
+
+When creating graphics, particularly for presentation or publication purposes, R's defaults do not always produce exactly that which is required. You can, however, customize almost every aspect of the display using graphics parameters. R maintains a list of a large number of graphics parameters which control things such as line style, colors, figure arrangement and text justification among many others. Every graphics parameter has a name (such as `col', which controls colors,) and a value (a color number, for example.)
+
+A separate list of graphics parameters is maintained for each active device, and each device has a default set of parameters when initialized. Graphics parameters can be set in two ways: either permanently, affecting all graphics functions which access the current device; or temporarily, affecting only a single graphics function call. 
+
+The par() function is used to access and modify the list of graphics parameters for the current graphics device.
+```{r}
+names(par())
+```
+
+```{r}
+par(c("col", "lty"))
+```
+With a character vector argument, returns only the named graphics parameters (again, as a list.) 
+
+```{r}
+par(col=4, lty=2)
+```
+With named arguments (or a single list argument), sets the values of the named graphics parameters, and returns the original values of the parameters as a list.
+
+Setting graphics parameters with the par() function changes the value of the parameters permanently, in the sense that all future calls to graphics functions (on the current device) will be affected by the new value. You can think of setting graphics parameters in this way as setting “default” values for the parameters, which will be used by all graphics functions unless an alternative value is given.
+
+Note that calls to par() always affect the global values of graphics parameters, even when par() is called from within a function. This is often undesirable behavior—usually we want to set some graphics parameters, do some plotting, and then restore the original values so as not to affect the user's R session. You can restore the initial values by saving the result of par() when making changes, and restoring the initial values when plotting is complete.
+
+     > oldpar <- par(col=4, lty=2)
+       ... plotting commands ...
+     > par(oldpar)
+
+To save and restore all settable graphical parameters use
+
+     > oldpar <- par(no.readonly=TRUE)
+       ... plotting commands ...
+     > par(oldpar)
+
+Graphics parameters may also be passed to (almost) any graphics function as named arguments, via the `...` parameter. This has the same effect as passing the arguments to the par() function, except that the changes only last for the duration of the function call. For example:
+
+  > plot(x, y, pch="+")
+  
+produces a scatterplot using a plus sign as the plotting character, without changing the default plotting character for future plots.
+
+Unfortunately, this is not implemented entirely consistently, some high level functions may overwrite your calls, and it is sometimes necessary to set and reset graphics parameters using par().
+
+
+### Device drivers
+
+R can generate graphics (of varying levels of quality) on almost any type of display or printing device. Before this can begin, however, R needs to be informed what type of device it is dealing with. This is done by starting a device driver. The purpose of a device driver is to convert graphical instructions from R (“draw a line,” for example) into a form that the particular device can understand.
+
+Device drivers are started by calling a device driver function. There is one such function for every device driver: type help(Devices) for a list of them all. For example, issuing the command
+
+     > postscript()
+
+causes all future graphics output to be sent to the printer in PostScript format. Some commonly-used device drivers are:
+
+* X11() - For use with the X11 window system on Unix-alikes 
+* windows() - For use on Windows 
+* quartz() - For use on Mac OS X 
+* postscript() - For printing on PostScript printers, or creating PostScript graphics files. 
+* pdf() - Produces a PDF file, which can also be included into PDF files. 
+* png() - Produces a bitmap PNG file. (Not always available: see its help page.) 
+* jpeg() - Produces a bitmap JPEG file, best used for image plots. (Not always available: see its help page.)
+
+When you have finished with a device, be sure to terminate the device driver by issuing the command
+
+     > dev.off()
+This ensures that the device finishes cleanly; for example in the case of hardcopy devices this ensures that every page is completed and has been sent to the printer. (This will happen automatically at the normal end of a session.)
+
+
+Session Info
+============================================================
+-----------------------------------
+```{r}
+sessionInfo()
+```
+

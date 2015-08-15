@@ -1,0 +1,34 @@
+\textbf{using pairwiseAlignment}
+\begin{block}{}
+\begin{footnotesize}
+\begin{Schunk}
+\begin{Sinput}
+> pairwiseAlignment("TTGCACCC", "TTGGATTGACCCA")
+\end{Sinput}
+\begin{Soutput}
+Global PairwiseAlignedFixedSubject (1 of 1)
+pattern: [1] TTGCA-----CCC
+subject: [1] TTGGATTGACCCA
+score: -29.90804
+\end{Soutput}
+\begin{Sinput}
+> pairwiseAlignment("TTGCACCC", "TTGGATTGACCCA", type="global-local")
+\end{Sinput}
+\begin{Soutput}
+Global-Local PairwiseAlignedFixedSubject (1 of 1)
+pattern: [1] TTGCACCC
+subject: [6] TTG-ACCC
+score: -0.1277071
+\end{Soutput}
+\begin{Sinput}
+> pairwiseAlignment("TTC", "ATTATTA", type="global-local")
+\end{Sinput}
+\begin{Soutput}
+Global-Local PairwiseAlignedFixedSubject (1 of 1)
+pattern: [1] TTC
+subject: [5] TTA
+score: -2.596666
+\end{Soutput}
+\end{Schunk}
+\end{footnotesize}
+\end{block}

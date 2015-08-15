@@ -1,0 +1,10 @@
+\beamer@endinputifotherversion {3.12pt}
+\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
+\beamer@sectionintoc {2}{Alignment Algorithms}{5}{0}{2}
+\beamer@subsectionintoc {2}{1}{BLAST}{5}{0}{2}
+\beamer@subsectionintoc {2}{2}{BLAT}{6}{0}{2}
+\beamer@subsectionintoc {2}{3}{Improvements}{7}{0}{2}
+\beamer@sectionintoc {3}{Illumina Data}{8}{0}{3}
+\beamer@subsectionintoc {3}{1}{Hash Based}{11}{0}{3}
+\beamer@subsectionintoc {3}{2}{Burrows-Wheeler Tranform}{12}{0}{3}
+\beamer@sectionintoc {4}{SAM/BAM output}{15}{0}{4}

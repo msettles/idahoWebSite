@@ -1,0 +1,11 @@
+PASS	Basic Statistics	YeastJohnson_GATCAG_L001_R1_001.fastq.gz
+PASS	Per base sequence quality	YeastJohnson_GATCAG_L001_R1_001.fastq.gz
+PASS	Per sequence quality scores	YeastJohnson_GATCAG_L001_R1_001.fastq.gz
+WARN	Per base sequence content	YeastJohnson_GATCAG_L001_R1_001.fastq.gz
+PASS	Per base GC content	YeastJohnson_GATCAG_L001_R1_001.fastq.gz
+FAIL	Per sequence GC content	YeastJohnson_GATCAG_L001_R1_001.fastq.gz
+PASS	Per base N content	YeastJohnson_GATCAG_L001_R1_001.fastq.gz
+PASS	Sequence Length Distribution	YeastJohnson_GATCAG_L001_R1_001.fastq.gz
+PASS	Sequence Duplication Levels	YeastJohnson_GATCAG_L001_R1_001.fastq.gz
+WARN	Overrepresented sequences	YeastJohnson_GATCAG_L001_R1_001.fastq.gz
+FAIL	Kmer Content	YeastJohnson_GATCAG_L001_R1_001.fastq.gz

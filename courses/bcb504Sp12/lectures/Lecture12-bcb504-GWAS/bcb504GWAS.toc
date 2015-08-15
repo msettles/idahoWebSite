@@ -1,0 +1,3 @@
+\beamer@endinputifotherversion {3.12pt}
+\beamer@sectionintoc {1}{GWAS Case/Control studies}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Population Stratification}{4}{0}{1}

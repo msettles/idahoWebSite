@@ -1,0 +1,11 @@
+PASS	Basic Statistics	Test_GATCAG_L001_R1_001.fastq.gz
+FAIL	Per base sequence quality	Test_GATCAG_L001_R1_001.fastq.gz
+PASS	Per sequence quality scores	Test_GATCAG_L001_R1_001.fastq.gz
+WARN	Per base sequence content	Test_GATCAG_L001_R1_001.fastq.gz
+PASS	Per base GC content	Test_GATCAG_L001_R1_001.fastq.gz
+FAIL	Per sequence GC content	Test_GATCAG_L001_R1_001.fastq.gz
+PASS	Per base N content	Test_GATCAG_L001_R1_001.fastq.gz
+PASS	Sequence Length Distribution	Test_GATCAG_L001_R1_001.fastq.gz
+WARN	Sequence Duplication Levels	Test_GATCAG_L001_R1_001.fastq.gz
+WARN	Overrepresented sequences	Test_GATCAG_L001_R1_001.fastq.gz
+WARN	Kmer Content	Test_GATCAG_L001_R1_001.fastq.gz

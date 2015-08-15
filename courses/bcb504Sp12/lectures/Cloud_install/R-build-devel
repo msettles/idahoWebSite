@@ -1,0 +1,53 @@
+#!/bin/bash -x
+# This script is run daily from cron to install current build
+# of R-devel
+## send the install directory by command line argument
+LOCALDIR=$1
+FTPSITE=ftp://ftp.stat.math.ethz.ch/Software/R/R-devel.tar.gz
+REPOS=https://svn.r-project.org/R
+#JAVA_HOME=/usr/lib/jvm/java-6-sun/jre/bin/java
+
+umask 022
+# using the svn
+#cd /devel/opt/cronjobs
+#svn co -r r49844 $REPOS/trunk r-devel/R # first time only
+#svn co $REPOS/trunk r-devel
+
+# using the ftp site and the tarball
+wget $FTPSITE
+gzip -dc *.gz | tar xvf -
+cd R-devel
+#svn up || exit 1
+
+#cd r-devel
+
+export CRAN_RSYNC='cran.at.r-project.org::CRAN'
+tools/rsync-recommended || \
+(sleep 60; tools/rsync-recommended) || \
+(sleep 60; tools/rsync-recommended) || \
+(sleep 60; tools/rsync-recommended) || \
+exit 1
+
+cd ..
+rm -rf BUILD-dist
+mkdir BUILD-dist
+cd BUILD-dist
+../R-devel/configure --prefix=$LOCALDIR --enable-memory-profiling=yes --enable-R-profiling=yes --enable-R-shlib=yes --with-blas=yes R_PAPERSIZE='letter' || exit 1
+
+
+make
+make check
+make install
+make install-dvi
+make install-info
+make install-pdf
+ln -s $LOCALDIR/bin/R $LOCALDIR/bin/Rdev
+cd ..
+rm -rf R-devel BUILD-dist
+
+Rdev CMD javareconf
+
+echo "update.packages(ask=F)" > updateRpackages.R
+Rdev CMD BATCH updateRpackages.R
+rm updateRpackages.R
+

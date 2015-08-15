@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>R for Biologists - An Introduction to R (Lecture 3)</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+
+</head>
+
+<body>
+<h1>R for Biologists - An Introduction to R (Lecture 3)</h1>
+
+<h2>Selecting and Modifying subsets of data</h2>
+
+<hr/>
+
+<p>Subsets of the elements of a vector may be selected by appending to the name of the vector an index vector in square brackets. More generally any expression that evaluates to a vector may have subsets of its elements similarly selected by appending an index vector in square brackets immediately after the expression.</p>
+
+<p>Such index vectors can be any of four distinct types.</p>
+
+<p><strong>A logical vector</strong>. In this case the index vector must be of the same length as the vector from which elements are to be selected. Values corresponding to TRUE in the index vector are selected and those corresponding to FALSE are omitted. For example</p>
+
+<pre><code class="r">x &lt;- c(-2, 0, 3, 4, NA)
+y &lt;- x[!is.na(x)]
+</code></pre>
+
+<p>creates (or re-creates) an object y which will contain the non-missing values of x, in the same order. Note that if x has missing values, y will be shorter than x. Also</p>
+
+<pre><code class="r">z &lt;- (x + 1)[(!is.na(x)) &amp; x &gt; 0]
+</code></pre>
+
+<p>creates an object z and places in it the values of the vector x+1 for which the corresponding value in x was both non-missing and positive.</p>
+
+<p><strong>A vector of positive integral quantities</strong>. In this case the values in the index vector must lie in the set {1, 2, &hellip;, length(x)}. The corresponding elements of the vector are selected and concatenated, in that order, in the result. The index vector can be of any length and the result is of the same length as the index vector. For example <code>x[6]</code> is the sixth component of x and</p>
+
+<pre><code class="r">x[1:10]
+</code></pre>
+
+<pre><code>##  [1] -2  0  3  4 NA NA NA NA NA NA
+</code></pre>
+
+<p>selects the first 10 elements of x (assuming length(x) is not less than 10). Also</p>
+
+<pre><code class="r">c(&quot;x&quot;, &quot;y&quot;)[rep(c(1, 2, 2, 1), times = 4)]
+</code></pre>
+
+<pre><code>##  [1] &quot;x&quot; &quot;y&quot; &quot;y&quot; &quot;x&quot; &quot;x&quot; &quot;y&quot; &quot;y&quot; &quot;x&quot; &quot;x&quot; &quot;y&quot; &quot;y&quot; &quot;x&quot; &quot;x&quot; &quot;y&quot; &quot;y&quot; &quot;x&quot;
+</code></pre>
+
+<p>(an admittedly unlikely thing to do) produces a character vector of length 16 consisting of &ldquo;x&rdquo;, &ldquo;y&rdquo;, &ldquo;y&rdquo;, &ldquo;x&rdquo; repeated four times.</p>
+
+<p><strong>A vector of negative integral quantities</strong>. Such an index vector specifies the values to be excluded rather than included. Thus</p>
+
+<pre><code class="r">y &lt;- x[-(1:5)]
+</code></pre>
+
+<p>gives y all but the first five elements of x.</p>
+
+<p><strong>A vector of character strings.</strong> This possibility only applies where an object has a names attribute to identify its components. In this case a sub-vector of the names vector may be used in the same way as the positive integral labels in item 2 further above.</p>
+
+<pre><code class="r">fruit &lt;- c(5, 10, 1, 20)
+names(fruit) &lt;- c(&quot;orange&quot;, &quot;banana&quot;, &quot;apple&quot;, &quot;peach&quot;)
+lunch &lt;- fruit[c(&quot;apple&quot;, &quot;orange&quot;)]
+</code></pre>
+
+<p>The advantage is that alphanumeric names are often easier to remember than numeric indices. This option is particularly useful in connection with data frames, as we shall see later.</p>
+
+<p>An indexed expression can also appear on the receiving end of an assignment, in which case the assignment operation is performed only on those elements of the vector. The expression must be of the form vector[index_vector] as having an arbitrary expression in place of the vector name does not make much sense here.</p>
+
+<p>The vector assigned must match the length of the index vector, and in the case of a logical index vector it must again be the same length as the vector it is indexing.</p>
+
+<p>For example</p>
+
+<pre><code class="r">x[is.na(x)] &lt;- 0
+</code></pre>
+
+<p>replaces any missing values in x by zeros and</p>
+
+<pre><code class="r">y[y &lt; 0] &lt;- -y[y &lt; 0]
+</code></pre>
+
+<p>has the same effect as</p>
+
+<pre><code class="r">y &lt;- abs(y)
+</code></pre>
+
+<p>Vectors are the most important type of object in R, but there are several others which we will meet more formally in later sections.</p>
+
+<h2>Objects, their modes and attributes</h2>
+
+<hr/>
+
+<h3>Intrinsic attributes</h3>
+
+<p>The entities R operates on are technically known as objects. Examples are vectors of numeric (real) or complex values, vectors of logical values and vectors of character strings. These are known as “atomic” structures since their components are all of the same type, or <em>mode</em>, namely <strong>numeric, complex, logical, character and raw</strong>.</p>
+
+<p>Vectors must have their values all of the same mode. Thus any given vector must be unambiguously either logical, numeric, complex, character or raw. (The only apparent exception to this rule is the special <em>&ldquo;value&rdquo;</em>&ldquo; listed as <code>NA</code> for quantities not available, but in fact there are several types of NA). Note that a vector can be empty and still have a mode. For example the empty character string vector is listed as character(0) and the empty numeric vector as numeric(0).</p>
+
+<p>R also operates on objects called lists, which are of mode <code>list</code>. These are ordered sequences of objects which individually can be of any mode. lists are known as “recursive” rather than atomic structures since their components can themselves be lists in their own right.</p>
+
+<p>The other recursive structures are those of mode <code>function</code> and <code>expression</code>. Functions are the objects that form part of the R system along with similar user written functions, which we discuss in some detail later. Expressions as objects form an advanced part of R which will not be discussed in this class.</p>
+
+<p>By the mode of an object we mean the basic type of its fundamental constituents. This is a special case of a “property” of an object. Another property of every object is its length. The functions mode(object) and length(object) can be used to find out the mode and length of any defined structure.</p>
+
+<p>Further properties of an object are usually provided by attributes(object), see Getting and setting attributes. Because of this, mode and length are also called “intrinsic attributes” of an object. For example, if z is a complex vector of length 100, then in an expression mode(z) is the character string &quot;complex&rdquo; and length(z) is 100.</p>
+
+<p>R caters for changes of mode almost anywhere it could be considered sensible to do so, (and a few where it might not be). For example with</p>
+
+<pre><code class="r">z &lt;- 0:9
+</code></pre>
+
+<p>we could put</p>
+
+<pre><code class="r">digits &lt;- as.character(z)
+digits
+</code></pre>
+
+<pre><code>##  [1] &quot;0&quot; &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; &quot;5&quot; &quot;6&quot; &quot;7&quot; &quot;8&quot; &quot;9&quot;
+</code></pre>
+
+<p>A further coercion, or change of mode, reconstructs the numerical vector again:</p>
+
+<pre><code class="r">d &lt;- as.integer(digits)
+</code></pre>
+
+<p>Now d and z are the same. There is a large collection of functions of the form as.something() for either coercion from one mode to another, or for investing an object with some other attribute it may not already possess. The reader should consult the different help files to become familiar with them.</p>
+
+<h3>Changing the length of an object</h3>
+
+<p>An “empty” object may still have a mode. For example</p>
+
+<pre><code class="r">e &lt;- numeric()
+e
+</code></pre>
+
+<pre><code>## numeric(0)
+</code></pre>
+
+<p>makes e an empty vector structure of mode numeric. Similarly <code>character()</code> is a empty character vector, and so on. Once an object of any size has been created, new components may be added to it simply by giving it an index value outside its previous range. Thus</p>
+
+<pre><code class="r">e[3] &lt;- 17
+e
+</code></pre>
+
+<pre><code>## [1] NA NA 17
+</code></pre>
+
+<p>now makes e a vector of length 3, (the first two components of which are at this point both NA). This applies to any structure at all, provided the mode of the additional component(s) agrees with the mode of the object in the first place. This automatic adjustment of lengths of an object is used often.</p>
+
+<p>Conversely to truncate the size of an object requires only an assignment to do so. Hence if alpha is an object of length 10, then</p>
+
+<pre><code class="r">alpha &lt;- 1:10
+alpha &lt;- alpha[2 * 1:5]
+</code></pre>
+
+<p>makes it an object of length 5 consisting of just the former components with even index. We can then retain just the first three values by</p>
+
+<pre><code class="r">length(alpha) &lt;- 3
+</code></pre>
+
+<p>and vectors can be extended (by missing values) in the same way.</p>
+
+<h3>The Class of an Object</h3>
+
+<p>All objects in R have a class, reported by the function class. For simple vectors this is just the mode, for example &ldquo;numeric&rdquo;, &ldquo;logical&rdquo;, &ldquo;character&rdquo; or &ldquo;list&rdquo;, but &ldquo;matrix&rdquo;, &ldquo;array&rdquo;, &ldquo;factor&rdquo; and &ldquo;data.frame&rdquo; are other possible values.</p>
+
+<pre><code class="r">m &lt;- matrix(1:10, ncol = 2)
+class(m)
+</code></pre>
+
+<pre><code>## [1] &quot;matrix&quot;
+</code></pre>
+
+<pre><code class="r">mode(m)
+</code></pre>
+
+<pre><code>## [1] &quot;numeric&quot;
+</code></pre>
+
+<p>A special attribute known as the class of the object is used to allow for an object-oriented style of programming in R. For example if an object has class &ldquo;data.frame&rdquo;, it will be printed in a certain way, the plot() function will display it graphically in a certain way, and other so-called generic functions such as summary() will react to it as an argument in a way sensitive to its class. More on object-oriented programming and Classes later.</p>
+
+<p>To remove temporarily the effects of class, use the function unclass(). For example if winter has the class &ldquo;data.frame&rdquo; then</p>
+
+<pre><code class="r">winter &lt;- data.frame(numbers = 1:26, characters = letters)
+winter
+</code></pre>
+
+<pre><code>##    numbers characters
+## 1        1          a
+## 2        2          b
+## 3        3          c
+## 4        4          d
+## 5        5          e
+## 6        6          f
+## 7        7          g
+## 8        8          h
+## 9        9          i
+## 10      10          j
+## 11      11          k
+## 12      12          l
+## 13      13          m
+## 14      14          n
+## 15      15          o
+## 16      16          p
+## 17      17          q
+## 18      18          r
+## 19      19          s
+## 20      20          t
+## 21      21          u
+## 22      22          v
+## 23      23          w
+## 24      24          x
+## 25      25          y
+## 26      26          z
+</code></pre>
+
+<p>will print it in data frame form, which is rather like a matrix, whereas</p>
+
+<pre><code class="r">unclass(winter)
+</code></pre>
+
+<pre><code>## $numbers
+##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
+## [24] 24 25 26
+## 
+## $characters
+##  [1] a b c d e f g h i j k l m n o p q r s t u v w x y z
+## Levels: a b c d e f g h i j k l m n o p q r s t u v w x y z
+## 
+## attr(,&quot;row.names&quot;)
+##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
+## [24] 24 25 26
+</code></pre>
+
+<p>will print it as an ordinary list. Only in rather special situations do you need to use this facility, but one is when you are learning to come to terms with the idea of class and generic functions.</p>
+
+<h1>Data Types</h1>
+
+<hr/>
+
+<p>We&#39;ve gone over the basic type of vector, but there are many kinds of usefull object in R</p>
+
+<h2>Ordered and Unordered Factors</h2>
+
+<hr/>
+
+<p>A factor is a vector object used to specify a discrete classification (grouping) of the components of other vectors of the same length. R provides both ordered and unordered factors. While the “real” application of factors is with model formulae (see Contrasts), we here look at a specific example.</p>
+
+<p>Suppose, for example, we have a sample of 30 tax accountants from all the states and territories of Australia and their individual state of origin is specified by a character vector of state mnemonics as</p>
+
+<pre><code class="r">state &lt;- c(&quot;tas&quot;, &quot;sa&quot;, &quot;qld&quot;, &quot;nsw&quot;, &quot;nsw&quot;, &quot;nt&quot;, &quot;wa&quot;, &quot;wa&quot;, &quot;qld&quot;, &quot;vic&quot;, 
+    &quot;nsw&quot;, &quot;vic&quot;, &quot;qld&quot;, &quot;qld&quot;, &quot;sa&quot;, &quot;tas&quot;, &quot;sa&quot;, &quot;nt&quot;, &quot;wa&quot;, &quot;vic&quot;, &quot;qld&quot;, 
+    &quot;nsw&quot;, &quot;nsw&quot;, &quot;wa&quot;, &quot;sa&quot;, &quot;act&quot;, &quot;nsw&quot;, &quot;vic&quot;, &quot;vic&quot;, &quot;act&quot;)
+state
+</code></pre>
+
+<pre><code>##  [1] &quot;tas&quot; &quot;sa&quot;  &quot;qld&quot; &quot;nsw&quot; &quot;nsw&quot; &quot;nt&quot;  &quot;wa&quot;  &quot;wa&quot;  &quot;qld&quot; &quot;vic&quot; &quot;nsw&quot;
+## [12] &quot;vic&quot; &quot;qld&quot; &quot;qld&quot; &quot;sa&quot;  &quot;tas&quot; &quot;sa&quot;  &quot;nt&quot;  &quot;wa&quot;  &quot;vic&quot; &quot;qld&quot; &quot;nsw&quot;
+## [23] &quot;nsw&quot; &quot;wa&quot;  &quot;sa&quot;  &quot;act&quot; &quot;nsw&quot; &quot;vic&quot; &quot;vic&quot; &quot;act&quot;
+</code></pre>
+
+<p>Notice that in the case of a character vector, “sorted” means sorted in alphabetical order.</p>
+
+<p>A factor is similarly created using the factor() function:</p>
+
+<pre><code class="r">statef &lt;- factor(state)
+</code></pre>
+
+<p>The <code>print()</code> function handles factors slightly differently from other objects:</p>
+
+<pre><code class="r">statef
+</code></pre>
+
+<pre><code>##  [1] tas sa  qld nsw nsw nt  wa  wa  qld vic nsw vic qld qld sa  tas sa 
+## [18] nt  wa  vic qld nsw nsw wa  sa  act nsw vic vic act
+## Levels: act nsw nt qld sa tas vic wa
+</code></pre>
+
+<p>To find out the levels of a factor the function levels() can be used.</p>
+
+<pre><code class="r">levels(statef)
+</code></pre>
+
+<pre><code>## [1] &quot;act&quot; &quot;nsw&quot; &quot;nt&quot;  &quot;qld&quot; &quot;sa&quot;  &quot;tas&quot; &quot;vic&quot; &quot;wa&quot;
+</code></pre>
+
+<p>R will first convert the vector to a character string, using <code>as.character</code></p>
+
+<pre><code class="r">unclass(statef)
+</code></pre>
+
+<pre><code>##  [1] 6 5 4 2 2 3 8 8 4 7 2 7 4 4 5 6 5 3 8 7 4 2 2 8 5 1 2 7 7 1
+## attr(,&quot;levels&quot;)
+## [1] &quot;act&quot; &quot;nsw&quot; &quot;nt&quot;  &quot;qld&quot; &quot;sa&quot;  &quot;tas&quot; &quot;vic&quot; &quot;wa&quot;
+</code></pre>
+
+<h3>Ordered Factors</h3>
+
+<p>The levels of factors are stored in alphabetical order, or in the order they were specified to factor if they were specified explicitly with the <code>levels</code> parameter.</p>
+
+<p>Sometimes the levels will have a natural ordering that we want to record and want our statistical analysis to make use of. The ordered() function creates such ordered factors but is otherwise identical to factor. For most purposes the only difference between ordered and unordered factors is that the former are printed showing the ordering of the levels, but the contrasts generated for them in fitting linear models are different.</p>
+
+<h3>The function tapply() and ragged arrays</h3>
+
+<p>To continue the previous example, suppose we have the incomes of the same tax accountants in another vector (in suitably large units of money)</p>
+
+<pre><code class="r">incomes &lt;- c(60, 49, 40, 61, 64, 60, 59, 54, 62, 69, 70, 42, 56, 61, 61, 61, 
+    58, 51, 48, 65, 49, 49, 41, 48, 52, 46, 59, 46, 58, 43)
+</code></pre>
+
+<p>To calculate the sample mean income for each state we can now use the special function tapply():</p>
+
+<pre><code class="r">incmeans &lt;- tapply(incomes, statef, mean)
+incmeans
+</code></pre>
+
+<pre><code>##   act   nsw    nt   qld    sa   tas   vic    wa 
+## 44.50 57.33 55.50 53.60 55.00 60.50 56.00 52.25
+</code></pre>
+
+<p>giving a means vector with the components labelled by the levels</p>
+
+<p>The function tapply() is used to apply a function, here mean(), to each group of components of the first argument, here incomes, defined by the levels of the second component, here statef, as if they were separate vector structures. The result is a structure of the same length as the levels attribute of the factor containing the results.</p>
+
+<p>Suppose further we needed to calculate the standard deviation of the state income means.</p>
+
+<pre><code class="r">incsd &lt;- tapply(incomes, statef, sd)
+incsd
+</code></pre>
+
+<pre><code>##     act     nsw      nt     qld      sa     tas     vic      wa 
+##  2.1213 10.5578  6.3640  9.1815  5.4772  0.7071 11.7260  5.3151
+</code></pre>
+
+<p>In this instance what happens can be thought of as follows. The values in the vector are collected into groups corresponding to the distinct entries in the factor. The function is then applied to each of these groups individually. The value is a vector of function results, labelled by the levels attribute of the factor.</p>
+
+<p>The combination of a vector and a labelling factor is an example of what is sometimes called a ragged array, since the subclass sizes are possibly irregular. When the subclass sizes are all the same the indexing may be done implicitly and much more efficiently, as we see in the next section.</p>
+
+<h1>Packages</h1>
+
+<hr/>
+
+<p>All R functions and datasets are stored in packages. Only when a package is loaded are its contents available. This is done both for efficiency (the full list would take more memory and would take longer to search than a subset), and to aid package developers, who are protected from name clashes with other code.</p>
+
+<p>To see which packages are installed, issue the command</p>
+
+<pre><code class="r">library()
+</code></pre>
+
+<p>with no arguments. To load a particular package (e.g., the boot package containing functions from Davison &amp; Hinkley (1997)), use a command like</p>
+
+<pre><code class="r">library(boot)
+</code></pre>
+
+<p>Users connected to the Internet can use the install.packages(), update.packages() functions and RStudio tab Packages to install and update packages.</p>
+
+<p>To see which packages are currently loaded, use</p>
+
+<pre><code class="r">search()
+</code></pre>
+
+<pre><code>##  [1] &quot;.GlobalEnv&quot;        &quot;package:boot&quot;      &quot;package:knitr&quot;    
+##  [4] &quot;package:stats&quot;     &quot;package:graphics&quot;  &quot;package:grDevices&quot;
+##  [7] &quot;package:utils&quot;     &quot;package:datasets&quot;  &quot;package:methods&quot;  
+## [10] &quot;Autoloads&quot;         &quot;package:base&quot;
+</code></pre>
+
+<p>to display the search list. Some packages may be loaded but not available on the search list: these will be included in the list given by</p>
+
+<pre><code class="r">loadedNamespaces()
+</code></pre>
+
+<pre><code>##  [1] &quot;base&quot;      &quot;boot&quot;      &quot;datasets&quot;  &quot;digest&quot;    &quot;evaluate&quot; 
+##  [6] &quot;formatR&quot;   &quot;graphics&quot;  &quot;grDevices&quot; &quot;knitr&quot;     &quot;methods&quot;  
+## [11] &quot;plyr&quot;      &quot;stats&quot;     &quot;stringr&quot;   &quot;tools&quot;     &quot;utils&quot;
+</code></pre>
+
+<h3>Standard (Base) Packages</h3>
+
+<p>The standard (or base) packages are considered part of the R source code. They contain the basic functions that allow R to work, and the datasets and standard statistical and graphical functions. They should be automatically available in any R installation.</p>
+
+<h3>Contributed Packages</h3>
+
+<p>There are thousands of contributed packages for R, written by many different authors. Some of these packages implement specialized statistical methods, others give access to data or hardware, and others are designed to complement textbooks. Some (the recommended packages) are distributed with every binary distribution of R. Most are available for download from <a href="http://CRAN.R-project.org/">CRAN</a> and its mirrors) and other repositories such as <a href="http://www.bioconductor.org/">Bioconductor</a> and <a href="http://www.omegahat.org/">Omegahat</a></p>
+
+<h1>Session Info</h1>
+
+<hr/>
+
+<pre><code class="r">sessionInfo()
+</code></pre>
+
+<pre><code>## R version 2.15.1 (2012-06-22)
+## Platform: x86_64-apple-darwin9.8.0/x86_64 (64-bit)
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+## [1] boot_1.3-7 knitr_0.8 
+## 
+## loaded via a namespace (and not attached):
+## [1] digest_0.5.2   evaluate_0.4.2 formatR_0.6    plyr_1.7.1    
+## [5] stringr_0.6.1  tools_2.15.1
+</code></pre>
+
+</body>
+
+</html>
+

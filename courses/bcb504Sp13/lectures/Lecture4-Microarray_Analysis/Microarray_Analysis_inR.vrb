@@ -1,0 +1,4 @@
+\frametitle{Differential Expression Analysis}
+  \begin{description}
+  \item [LIMMA] Linear Models for Microarray Data approach. Limma applies a linear model to the data and uses model contrasts to extract specific comparisons of interest. It then uses multiple testing correction based techniques (FDR, FWER, etc.) for MT corrected p-values. Can also choose a fold change parameter, to ensure that called genes change at least a pre-specified amount.
+  \end{description}

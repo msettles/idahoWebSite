@@ -1,0 +1,28 @@
+\begin{scriptsize}
+\begin{verbatim}
+====================Summary Statistics====================
+Reads analyzed: 1068653, Bases:521817306
+Found ->
+Left mid tag: 1068653, 100%
+Right mid tag: 1067064, 99.8513%
+# of reads with vector: 1065914, 99.7437%
+Reads left trimmed ->
+By adapter: 20962
+By quality: 7465
+By vector: 323056
+Average left trim length: 29.3128 bp
+Reads right trimmed ->
+By adapter: 115195
+By quality: 234603
+By vector: 924
+Average right trim length: 175.871 bp
+Reads discarded: 740919 ->
+By read length: 740919
+--------------------------------------------------------
+Reads accepted: 327734, %30.668
+Average trimmed length: 325.645 bp
+==========================================================
+Program finished.
+Elapsed time = 1.512389e+03 seconds
+\end{verbatim}
+\end{scriptsize}

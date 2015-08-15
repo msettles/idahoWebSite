@@ -1,0 +1,8 @@
+\beamer@endinputifotherversion {3.12pt}
+\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
+\beamer@sectionintoc {2}{de novo RNA assembly}{5}{0}{2}
+\beamer@subsectionintoc {2}{1}{Trinity}{6}{0}{2}
+\beamer@subsectionintoc {2}{2}{Newbler}{8}{0}{2}
+\beamer@subsectionintoc {2}{3}{Fusion transcripts}{11}{0}{2}
+\beamer@sectionintoc {3}{RNA mapping}{12}{0}{3}
+\beamer@sectionintoc {4}{Digital Transcriptomics}{13}{0}{4}

@@ -1,0 +1,7 @@
+\beamer@endinputifotherversion {3.12pt}
+\beamer@sectionintoc {1}{History}{3}{0}{1}
+\beamer@sectionintoc {2}{Roche 454 Pyrosequencing}{4}{0}{2}
+\beamer@sectionintoc {3}{Illumina Solexa}{7}{0}{3}
+\beamer@sectionintoc {4}{Sequence Data}{9}{0}{4}
+\beamer@sectionintoc {5}{Library Preparation}{14}{0}{5}
+\beamer@sectionintoc {6}{Other sequencing technologies}{15}{0}{6}

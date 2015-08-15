@@ -7,7 +7,7 @@
 ##	Returns an AffyBatch object
 #############################################################	
 "loadAffyOLD" <-
-function ( targetsFile = "targets.txt", metaFile = "description.txt", miameFile = "miame.txt", celPath = ".", notes = "" ) {
+function ( targetsFile = "targets.txt", metaFile = "description.txt", miameFile = "miame.txt", celPath = ".", notes = "", cdfname=NULL) {
 	if (!require("affy")) 
 		stop("Need to install the library: affy")
 	# Read in Targets File
@@ -27,11 +27,11 @@ function ( targetsFile = "targets.txt", metaFile = "description.txt", miameFile 
               sampleNames=rownames(targets),
               phenoData=phenodata,
               description=miamedata,
-              notes=notes)
+              notes=notes,cdfname)
 }
 
 "loadAffy" <-
-function ( targetsFile = "targets.txt", miameFile = "miame.txt", celPath = ".", notes = "" ) {
+function ( targetsFile = "targets.txt", miameFile = "miame.txt", celPath = ".", notes = "", cdfname=NULL ) {
 	if (!require("affy")) 
 		stop("Need to install the library: affy")
 	# Read in Targets File
@@ -43,7 +43,7 @@ function ( targetsFile = "targets.txt", miameFile = "miame.txt", celPath = ".", 
               celfile.path=celPath,
               phenoData=phenodata,
               description=miamedata,
-              notes=notes)
+              notes=notes,cdfname=cdfname)
 }
 
 "loadGPR" <-
@@ -87,7 +87,7 @@ function ( targetsFile = "targets.txt", metaFile = "description.txt", miameFile 
 }
 
 "loadAffyOligo" <-
-function ( targetsFile = "targets.txt", metaFile = "description.txt", miameFile = "miame.txt", celPath = ".", notes = "", pkgname ) {
+function ( targetsFile = "targets.txt", metaFile = "description.txt", miameFile = "miame.txt", celPath = ".", notes = "", pkgname) {
 	if (!require("oligo")) 
 		stop("Need to install the library: oligo")
 	# Read in Targets File

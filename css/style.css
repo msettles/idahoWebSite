@@ -236,12 +236,20 @@ h1,h2,h3,h4{
 	margin:0 0 0 0.5em;
 }
 
+/*
 h3{
 	background-color:#C1C1C1;
 	padding:0.5em 0;
 	text-indent:1em;
 }
+*/
 /* line elements */
+
+h4{
+	background-color:#C1C1C1;
+	padding:0.5em 0;
+	text-indent:1em;
+}
 
 .line{
 	/* The dividing line: */
@@ -257,6 +265,13 @@ article .line{
 	background-color:#15242a;
 	border-bottom-color:#204656;
 	margin:1.3em 0;
+}
+
+article .line2{
+  /* The dividing line inside of the article is darker: */
+  background-color:##727b7f;
+  border-bottom-color:#204656;
+  margin:1.3em 0;
 }
 
 footer .line{
@@ -446,7 +461,7 @@ footer a.up{
   tr, img { page-break-inside: avoid; }
   img { max-width: 100% !important; }
   @page { margin: 0.5cm; }
-  p, h2, h3 { orphans: 3; widows: 3; }
-  h2, h3 { page-break-after: avoid; }
+  p, h2, h3, h4 { orphans: 3; widows: 3; }
+  h2, h3, h4 { page-break-after: avoid; }
 }
 

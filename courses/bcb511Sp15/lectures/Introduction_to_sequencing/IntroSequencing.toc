@@ -1,0 +1,7 @@
+\beamer@endinputifotherversion {3.33pt}
+\beamer@sectionintoc {1}{History}{3}{0}{1}
+\beamer@sectionintoc {2}{Roche 454 Pyrosequencing}{7}{0}{2}
+\beamer@sectionintoc {3}{Illumina/Solexa}{13}{0}{3}
+\beamer@sectionintoc {4}{Life Sciences Ion Torrent}{18}{0}{4}
+\beamer@sectionintoc {5}{Pacific Biosystems}{19}{0}{5}
+\beamer@sectionintoc {6}{Oxford Nanopore}{20}{0}{6}

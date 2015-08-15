@@ -1,0 +1,12 @@
+\frametitle{adjusted data}
+\begin{tiny}
+\begin{verbatim}
+CHR                                     SNP      UNADJ         GC         QQ       BONF       HOLM   SIDAK_SS   SIDAK_SD     FDR_BH     FDR_BY
+   3                     ARS-BFGL-NGS-113303  3.062e-07  3.062e-07  1.094e-05    0.01399    0.01399    0.01389    0.01389    0.01399     0.1582
+   1                  Hapmap57114-rs29012843  3.264e-05  3.264e-05  3.283e-05          1          1     0.7749     0.7749     0.3944          1
+   1   ARS-USMARC-Parent-DQ381153-rs29012842  3.264e-05  3.264e-05  5.472e-05          1          1     0.7749     0.7749     0.3944          1
+  21                  Hapmap60593-rs29025761  3.453e-05  3.453e-05  7.661e-05          1          1     0.7935     0.7935     0.3944          1
+  11                         BTA-93093-no-rs  6.214e-05  6.214e-05   9.85e-05          1          1     0.9415     0.9415     0.5052          1
+  27                           UA-IFASA-1830  6.635e-05  6.635e-05  0.0001204          1          1     0.9517     0.9517     0.5052          1
+\end{verbatim}
+\end{tiny}

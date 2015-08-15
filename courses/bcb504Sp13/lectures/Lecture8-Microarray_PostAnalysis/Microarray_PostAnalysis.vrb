@@ -1,0 +1,5 @@
+\frametitle{Approaches}
+  \begin{description}
+  \item [LIMMA] Linear Models for Microarray Data approach. Limma applies a linear model to the data and uses model contrasts to extract specific comparisons of interest. It then uses multiple testing correction based techniques (FDR, FWER, etc.) for MT corrected p-values. Can also choose a fold change parameter, to ensure that called genes change at least a pre-specified amount.
+  \item [SAM] Significance analysis of Microarrays (SAM) approach. SAM computes a statistic $d_i$ for each gene $i$, measuring the strength of the relationship between gene expression and a response variable. It then uses repeated permutations of the data to determine if the expression of any genes are significantly related to the response. The cutoff for significance is determined by a tuning parameter \textit{delta}, chosen by the user based on the false positive rate. One can also choose a fold change parameter, to ensure that called genes change at least a pre-specified amount.
+  \end{description}

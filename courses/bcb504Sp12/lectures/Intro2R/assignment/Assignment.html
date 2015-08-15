@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>R- Assigment</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h1>R- Assigment</h1>
+
+<h2>Exercise 1</h2>
+
+<h3>1.1</h3>
+
+<p>There is a really exciting data set included with the default R installation, but I can&#39;t remember what
+it&#39;s called. I think it has something to do with chicken. Find it by keyword search and load it into your
+workspace.</p>
+
+<h3>1.2</h3>
+
+<p>Add a new column to chickwts that gives the weight in kilograms, rather than grams. Make sure the
+column has a descriptive name.</p>
+
+<h3>1.3</h3>
+
+<p>Make a box-and-whiskers plot showing the distribution of chicken weight according to feed type. Make
+sure to label the axes appropriately. (hint: use data$w ~ data$f form)</p>
+
+<h2>Exercise 2</h2>
+
+<h3>2.1</h3>
+
+<p>Create a numeric vector x of length 50 that ranges from -pi to pi. Create a numeric vector y1 that is the
+sine of x (in radians). Create a vector y2 that is the cosine of x.</p>
+
+<h3>2.2</h3>
+
+<p>Plot y1 vs. x as a series of points joined by lines. On the same graph, add red-colored points for y2 vs.
+x. Add a legend.</p>
+
+<h3>2.3</h3>
+
+<p>Plot a histogram of y2, making sure there are enough bins to clearly see the trend. Plot a density curve
+of y2 using the default parameters. Which plot is more faithful to the true distibution?</p>
+
+<h2>Exercise 3</h2>
+
+<h3>3.1</h3>
+
+<p>Download the <a href="https://discovery.genome.duke.edu/express/resources/193/OVCclinicalinfo.xls">OVC Clinical Data</a>. Now, import the spreadsheet as a data frame into your R
+workspace, naming the resulting object &ldquo;clin&rdquo;. Briefy inspect the data.</p>
+
+<h3>3.2</h3>
+
+<p>Confirm that the last three columns are useless, and remove them. Convert the first column to character
+type. Change the name of the third column to &ldquo;event&rdquo;. Convert the &ldquo;CA125.POST&rdquo; and &ldquo;GRADE&rdquo;
+columns into numeric values, with the ambiguous entries coded as NAs. Fix the &ldquo;Debulk&rdquo; column such
+that only two levels are used (&ldquo;O&rdquo; and &ldquo;S&rdquo;). Rename the eighth column to &ldquo;response&rdquo; and convert it to
+a logical vector (0 = FALSE, 1 = TRUE).</p>
+
+<h3>3.3</h3>
+
+<p>Now that you have &ldquo;cleaned up&rdquo; the &ldquo;clin&rdquo; object, save it for later use, both as an R object (&ldquo;clin.rda&rdquo;)
+and also as a CSV file (&ldquo;clin.csv&rdquo;).</p>
+
+</body>
+
+</html>
+

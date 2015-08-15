@@ -1,0 +1,49 @@
+\beamer@endinputifotherversion {3.12pt}
+\headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
+\headcommand {\beamer@framepages {1}{1}}
+\headcommand {\slideentry {0}{0}{2}{2/2}{}{0}}
+\headcommand {\beamer@framepages {2}{2}}
+\headcommand {\sectionentry {1}{Introduction}{3}{Introduction}{0}}
+\headcommand {\beamer@sectionpages {1}{2}}
+\headcommand {\beamer@subsectionpages {1}{2}}
+\headcommand {\slideentry {1}{0}{3}{3/3}{}{0}}
+\headcommand {\beamer@framepages {3}{3}}
+\headcommand {\slideentry {1}{0}{4}{4/4}{}{0}}
+\headcommand {\beamer@framepages {4}{4}}
+\headcommand {\sectionentry {2}{de novo RNA assembly}{5}{de novo RNA assembly}{0}}
+\headcommand {\beamer@sectionpages {3}{4}}
+\headcommand {\beamer@subsectionpages {3}{4}}
+\headcommand {\slideentry {2}{0}{5}{5/5}{}{0}}
+\headcommand {\beamer@framepages {5}{5}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{6}{Trinity}}\headcommand {\beamer@subsectionpages {5}{5}}
+\headcommand {\slideentry {2}{1}{1}{6/6}{Trinity}{0}}
+\headcommand {\beamer@framepages {6}{6}}
+\headcommand {\slideentry {2}{1}{2}{7/7}{Trinity}{0}}
+\headcommand {\beamer@framepages {7}{7}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{8}{Newbler}}\headcommand {\beamer@subsectionpages {6}{7}}
+\headcommand {\slideentry {2}{2}{1}{8/8}{Newbler}{0}}
+\headcommand {\beamer@framepages {8}{8}}
+\headcommand {\slideentry {2}{2}{2}{9/9}{Newbler}{0}}
+\headcommand {\beamer@framepages {9}{9}}
+\headcommand {\slideentry {2}{2}{2}{9/10}{Newbler}{0}}
+\headcommand {\beamer@framepages {9}{10}}
+\headcommand {\beamer@subsectionentry {0}{2}{3}{11}{Fusion transcripts}}\headcommand {\beamer@subsectionpages {8}{10}}
+\headcommand {\slideentry {2}{3}{1}{11/11}{Fusion transcripts}{0}}
+\headcommand {\beamer@framepages {11}{11}}
+\headcommand {\sectionentry {3}{RNA mapping}{12}{RNA mapping}{0}}
+\headcommand {\beamer@sectionpages {5}{11}}
+\headcommand {\beamer@subsectionpages {11}{11}}
+\headcommand {\slideentry {3}{0}{2}{12/12}{}{0}}
+\headcommand {\beamer@framepages {12}{12}}
+\headcommand {\sectionentry {4}{Digital Transcriptomics}{13}{Digital Transcriptomics}{0}}
+\headcommand {\beamer@sectionpages {12}{12}}
+\headcommand {\beamer@subsectionpages {12}{12}}
+\headcommand {\slideentry {4}{0}{3}{13/13}{}{0}}
+\headcommand {\beamer@framepages {13}{13}}
+\headcommand {\slideentry {4}{0}{4}{14/14}{}{0}}
+\headcommand {\beamer@framepages {14}{14}}
+\headcommand {\beamer@partpages {1}{14}}
+\headcommand {\beamer@subsectionpages {13}{14}}
+\headcommand {\beamer@sectionpages {13}{14}}
+\headcommand {\beamer@documentpages {14}}
+\headcommand {\def \inserttotalframenumber {14}}

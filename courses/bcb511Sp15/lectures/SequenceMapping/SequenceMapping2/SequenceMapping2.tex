@@ -1,0 +1,120 @@
+\documentclass[pdf]{beamer}
+\usepackage[latin1]{inputenc}
+\usepackage{multirow}
+\usetheme{Warsaw} %Warsaw
+\usecolortheme{seahorse}
+\usepackage[T1]{fontenc}
+
+\usepackage{verbatim}
+\begin{document}
+
+\title[Sequence Mapping]{Sequence Mapping/Alignment 2}
+\subtitle{BCB 511: Applied Bioinformatics\\}
+\author[Matt Settles]{Matt Settles}
+\date{\today}
+
+
+%% Title page
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+
+%% Outline
+\begin{frame}[plain] 
+  \frametitle{Outline}
+  \tableofcontents
+\end{frame}
+
+\section{Alignment/Mapping Applications}
+
+\subsection{Bowtie2}
+
+\begin{frame}
+  \frametitle{Bowtie2}
+Bowtie2 is an many mapping application developed by Ben Langmead from John Hopkin's University.\\
+As with all modern mappers, you need to first build a reference index, then map reads against the index.\\
+\begin{footnotesize}
+ \begin{verbatim*}
+bowtie2-build [options]* <reference\_in> <bt2\_index\_base>\\
+bowtie2 [options]* -x <bt2-idx> \{-1 <m1> -2 <m2> | -U <r>\} [-S <sam>]
+\end{verbatim*}
+\end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Local vs Global Mode}
+\begin{footnotesize}
+\begin{verbatim*}
+Global mode forces reads ends to map, no clipping (SOFT or HARD)\\
+  For --end-to-end:\\
+   --very-fast\\
+   --fast\\ 
+   --sensitive\\
+   --very-sensitive\\
+Local mode allows for SOFT and HARD clipping of ends \\ to allow for better alignments\\
+  For --local:\\
+   --very-fast-local \\
+   --fast-local\\
+   --sensitive-local\\
+   --very-sensitive-local\\
+\end{verbatim*}
+\end{footnotesize}
+\end{frame}
+ 
+\subsection{BWA}
+
+\begin{frame}
+  \frametitle{BWA MEM}
+  \begin {verbatim*}
+  The BWA algorithm was developed by Heng Li from the Broad Institute.\\   bwa index [options]* <in.fasta>\\   bwa mem [options]* <idxbase> <in1.fq> [in2.fq]\\\end {verbatim*}
+\end{frame}
+
+\section{SAM/BAM file manipulation}
+\subsection{samtools}
+\begin{frame}
+  \frametitle{samtools}
+  http://www.htslib.org
+\end{frame}
+
+
+\subsection{PicardTools}
+
+\begin{frame}
+  \frametitle{PicardTools}
+  http://broadinstitute.github.io/picard/
+\end{frame}
+
+\section{configure\_Mapping.R}
+
+\begin{frame}
+  \frametitle{configure\_Mapping.R}
+ Like preproc\_experiment, configure\_Mapping.R also automates the process of mapping and some samtools processes (and optionally  read extraction) and assumes the directory structure created by proproc\_experiment and the presence of a samples.txt file.\\
+the script is a part of grc/2.0\\
+configure\_Mapping.R [options]\\
+By default, the script uses BWA MEM\\
+When choosing Bowtie2, default is to use global mode, \\- -localmode flag to change to local mode\\
+\end{frame}
+
+\begin{frame}
+\frametitle{configure\_Mapping.R continued}
+Reference:\\
+configure\_Mapping.R will index your references for you, or use an index if one already exists.\\
+\vspace{0.1in}
+Specify a fasta file file to use as a reference, or a mapping\_targets.txt file when mapping agains multiple references.\\
+mapping\_targets.txt can be a tab delimited file specifying the name and location of the mapping references. Should have 2 columns
+target name and target fasta location, one row for each reference you would like to map each sample to.
+\end{frame}
+
+\begin{frame}
+\frametitle{configure\_Mapping.R reports}
+The script produces 3 types of reports found under the mapping results folder.\\
+\begin{enumerate}
+\item MappingFlagstats.txt - Tabled of results summering the flagstat report for each sample and target
+\item SummarySample2Targets.txt - Report across each target, reporting which target is most like the closest (most mappable reference)
+\item summary reads/proportions reports - for each target a report across samples detailing the number of reads and proportion of reads that map to each contig for each sample.
+\end{enumerate}
+
+\end{frame}
+
+\end{document}

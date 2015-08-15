@@ -1,0 +1,394 @@
+\documentclass[pdf]{beamer}
+\usepackage[latin1]{inputenc}
+\usepackage{multirow}
+\usetheme{Antibes} %Warsaw
+\usecolortheme{wolverine}
+
+\usepackage{/Library/Frameworks/R.framework/Resources/share/texmf/tex/latex/Sweave}
+
+\begin{document}
+
+\title[Sequence Analysis]{Sequence Analysis in R}
+\subtitle{BCB 504: Applied Bioinformatics\\}
+\author[Matt Settles]{Matt Settles}
+\institute{University of Idaho\\ Bioinformatics and Computational Biology Program}
+\date{\today}
+
+
+%% Title page
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+
+%% Outline
+\begin{frame}[plain] 
+  \frametitle{Outline}
+  \tableofcontents
+\end{frame}
+
+\section{Introduction}
+\begin{frame}
+  \frametitle{What to use and when}
+  Both R and Python have significant functionality to perform sequence analysis
+  \begin{description}
+  \item[Python] Biopython project - almost all biological sequence based
+  \item[R] Bioconductor project (specifically Biostrings, BSgenome, GenomicFeatures, IRanges, ShortRead, Rsamtools, rSFFreader, and others)
+  \end{description}
+
+Both Python and R are usefull when you want to either preprocess data (ie cleanup, QA, etc.), or post processing of data (ie summarization, visualization and statistical analysis). When your dealing with one record, or read, at a time Python can be much more efficient and quicker. When you need analyize all data at once, or perform statistical assessment/analysis, R can be much more efficient.
+\end{frame}
+
+\section{IBEST tools}
+\begin{frame}
+  \frametitle{IBEST tools: modules, rSFFreader}
+  need to first install git:  \href{http://git-scm.com/}{\textcolor{red}{http://git-scm.com/}}
+  
+  Then clone the package to your computer, from the command line
+  \newline
+  \alert{git clone git://github.com/msettles/rSFFreader.git}
+  \newline
+  \newline
+  Install into R, from the command line
+  \newline
+  \alert{R CMD build rSFFreader}%
+  \alert{R CMD INSTALL rSFFreadeR\_0.99.0.tar.gz}%
+  \newline
+  \newline
+  The Genomics Resources Core module - grc
+  \newline
+  \href{http://help.ibest.uidaho.edu/index.php?pg=kb.book&id=2}{\textcolor{red}{IBEST computational help}}
+
+\end{frame}
+
+\section{Biostrings and BSgenome}
+\begin{frame}[fragile]
+\begin{footnotesize}
+\begin{verbatim}
+source("http://bioconductor.org/biocLite.R"); 
+biocLite(c("Biostrings","BSgenome", "GenomicFeatures", 
+"hgu95av2probe", "BSgenome.Celegans.UCSC.ce2", 
+"BSgenome.Scerevisiae.UCSC.sacCer2", 
+"BSgenome.Hsapiens.UCSC.hg19", 
+"SNPlocs.Hsapiens.dbSNP.20101109",
+"TxDb.Hsapiens.UCSC.hg19.knownGene", 
+"TxDb.Scerevisiae.UCSC.sacCer2.ensGene"))
+\end{verbatim}
+\end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \textbf{Biostrings}
+  \begin{itemize}
+  \item Data structures for representing large biological sequences (DNA/RNA/amino acids)
+  \item Utilities for basic computations on sequences
+  \item Tools for sequence matching and pairwise alignments
+  \end{itemize}
+  \textbf{BSgenome and genome packages}
+  \begin{itemize}
+  \item Full genomes stored in Biostring containers
+  \item 16 organisms available via Bioconductor
+  \item Facilities for supporting your own via BSgenomeForge
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Basic Sequence Classes}
+  \begin{description}
+  \item[Single sequence] BString, DNAString, RNAString, AAString
+  \item[Set of sequences] BStringSet, DNAStringSet, RNAStringSet, AAStringSet, 
+  \item[Views on sequences] Views
+  \item[Masked sequences] MaskedBString, MaskedDNAString, MaskedRNAString, MaskedAAString
+  \end{description}
+\end{frame}
+
+\begin{frame}[fragile]
+ \frametitle{Constructing Sequences}
+ \begin{block}{}
+ \begin{footnotesize}
+<<firstrun,echo=FALSE,results=hide>>=
+ options(width=60)
+@
+<<Xstring Constructors>>=
+ library(Biostrings)
+ dna <- DNAString("acctttGtGG-NNYaA")
+ dna
+ RNAString(dna)
+ DNA_ALPHABET
+@
+ \end{footnotesize}
+ \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+ \frametitle{Constructing Sets of Sequences}
+ \begin{block}{}
+ \begin{footnotesize}
+<<XstringSet Constructors>>=
+ library(Biostrings)
+ dnaset <- DNAStringSet(c("acctttGtGG-NNYaA","GATTACA"))
+ dnaset
+ names(dnaset) <- c("DNA1","DNA2")  
+ dnaset
+@
+ \end{footnotesize}
+ \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Basic Transformations}
+  \begin{block}{}
+  \begin{footnotesize}
+<<transformations>>=
+dna <- DNAString("TCAACGTTGAATAGCGTACCG")
+reverseComplement(dna)
+translate(dna)
+translate(reverseComplement(dna))
+@
+  \end{footnotesize}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Alphabets}
+  \begin{block}{}
+  \begin{footnotesize}
+<<alphabet>>=
+alphabetFrequency(dna)
+dinucleotideFrequency(dna)
+trinucleotideFrequency(dna)[1:30]
+@
+additionally uniqueLetters(dna) and oligonucleotideFrequency(dna)
+
+  \end{footnotesize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\textbf{BSgenome packages}
+\begin{block}{}
+\begin{footnotesize}
+<<genomes>>=
+library(BSgenome.Celegans.UCSC.ce2)
+#Celegans
+chrI <- Celegans$chrI
+chrI
+@
+\end{footnotesize}
+\end{block}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\textbf{Input/Output of Sequences}
+\begin{block}{}
+\begin{footnotesize}
+<<seqIO>>=
+seqs <- read.DNAStringSet(
+  system.file("extdata","fastaEx.fa",package="Biostrings"))
+seqs
+write.XStringSet(seqs,file="outseqs.fasta")
+@
+additionally read.BStringSet,read.AAStringSet,read.RNAStringSet\\
+\textbf{Subsequences}
+<<subseq>>=
+subseq(seqs,start=c(5,9),end=c(10,35))
+@
+\end{footnotesize}
+\end{block}
+\end{frame}
+
+\section{ShortRead}
+\begin{frame}[fragile]
+\textbf{ShortRead Package}
+\begin{block}{}
+\begin{footnotesize}
+<<ShortRead>>=
+library(ShortRead)
+fq <- readFastq(
+  system.file("unitTests/cases","sanger.fastq",package="ShortRead"))
+fq
+@
+<<ShortRead2,eval=FALSE>>=
+quality(fq)
+sread(fq)
+id(fq)
+@
+\end{footnotesize}
+\end{block}
+\end{frame}
+
+\section{rSFFreader}
+\begin{frame}
+\begin{itemize}
+\item SFF files are the raw data format for 'pyrosequencing' like data (ie Roche 454 and Ion Torrent)
+\item Roche software provides for 2 tools: sffinfo sfffile
+\item To use these tools you must load the module roche454
+\item SFF files contain run information, read information, sequence, qualities and flowgrams
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\textbf{rSFFreader Package}
+\begin{block}{}
+\begin{footnotesize}
+<<rSFFreader>>=
+library(rSFFreader)
+sff <- readsff(
+ system.file("extdata","SmallTest.sff",package="rSFFreader"))
+sff
+clipMode(sff) <- "Raw"
+sff
+@
+\end{footnotesize}
+\end{block}
+\end{frame}
+
+\section{String Matching}
+\begin{frame}
+A common problem: find all the occurences (aka matches or hits) of a given pattern (typically short) in a (typically long) reference sequence (aka the subject) 
+\begin{itemize}
+  \item \textbf{matchPattern}: \textbf{1} pattern, \textbf{1} subject (reference sequence)
+  \item \textbf{vmatchPattern}: \textbf{1} pattern, \textbf{N} subject (reference sequence)
+  \item \textbf{matchPDict}: \textbf{N} pattern, \textbf{1} subject (reference sequence)
+  \item \textbf{vmatchPDict}: \textbf{N} pattern, \textbf{N} subject (reference sequence)
+\end{itemize}
+\alert{pDict functions have 2 major limitations}
+\begin{itemize}
+  \item Dictionary must be preprocessed first
+  \item must be constant width
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\textbf{matchPattern}
+\begin{block}{}
+\begin{footnotesize}
+<<patternMatching>>=
+library(Biostrings)
+library(BSgenome.Celegans.UCSC.ce2)
+matchPattern("CAACTCCGATCG", Celegans$chrII)
+@
+\end{footnotesize}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\textbf{matchPattern}
+\begin{block}{}
+\begin{footnotesize}
+<<patternMatching2>>=
+matchPattern("CAACTCCGATCG", Celegans$chrII, max.mismatch=1)
+@
+\end{footnotesize}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\textbf{matchPattern}
+\begin{block}{}
+\begin{footnotesize}
+<<patternMatching3>>=
+matchPattern("CAACTCCGATCG", Celegans$chrII, max.mismatch=1, with.indels=TRUE)
+@
+\end{footnotesize}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\textbf{matchPDict}
+\begin{block}{}
+\begin{footnotesize}
+\textbf{load the dictionary}
+<<pdict>>=
+library(hgu95av2probe)
+dict0 <- DNAStringSet(hgu95av2probe)
+dict0
+@
+\end{footnotesize}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\textbf{matchPDict}
+\begin{block}{}
+\begin{footnotesize}
+\textbf{preprocess the dictionary}
+<<pdict2>>=
+pdict <- PDict(dict0)
+pdict
+@
+\textbf{load the subject}
+<<pdict3>>=
+library(BSgenome.Hsapiens.UCSC.hg19)
+chr1 <- unmasked(Hsapiens$chr1)
+chr1
+@
+\textbf{call matchPDict}
+<<pdict4>>=
+m <- matchPDict(pdict, chr1)
+m
+@
+\end{footnotesize}
+\end{block}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\textbf{matchPDict}
+\begin{block}{}
+\begin{footnotesize}
+\textbf{query the object}
+<<pdict5, keep.source=TRUE>>=
+m[[700]] # results for the 700th pattern
+startIndex(m)[[700]]
+endIndex(m)[[700]] 
+@
+\end{footnotesize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+More string matching functions\\
+countPattern, vCountPattern, countPDict, vcountPDict: counts the number of matches
+\begin{small}
+\begin{itemize}
+  \item \textbf{trimLRPatterns}: trim left and/or right patterns from sequences
+  \item \textbf{matchLRPatterns}: the matches are specified by a left pattern, a right pattern and a maximum distance between them
+  \item \textbf{matchProbePair}: finds amplicons given by a pair of primers (simulate PCR)
+  \item \textbf{matchPWM}: finds motifs described by a Position Weight Matrix (PWM)
+  \item \textbf{findPalindromes/findComplimentedPalindromes}
+  \item \textbf{pairwiseAlignment}: solves (NeedlemanWunsch) global alignment, (Smith Waterman) local alignement, and (endsfree) overlap alignment problems
+\end{itemize}
+\end{small}
+not all of these support with.indels \textbf{yet}, see manuals for what is supported at this time 
+\end{frame}
+
+\begin{frame}[fragile]
+\textbf{using trimLRPattern}
+\begin{block}{}
+\begin{footnotesize}
+<<trimlrpattern>>=
+subject <- DNAStringSet(c("TGCTTGACGCAAAGA", "TTCTGCTTGGATCGG"))
+subject
+trimLRPatterns(Lpattern="TTCTGCTT", Rpattern="ATCGGAAG", subject)
+@
+\end{footnotesize}
+\end{block}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\textbf{using pairwiseAlignment}
+\begin{block}{}
+\begin{footnotesize}
+<<pairwiseAlignment>>=
+pairwiseAlignment("TTGCACCC", "TTGGATTGACCCA")
+pairwiseAlignment("TTGCACCC", "TTGGATTGACCCA", type="global-local")
+pairwiseAlignment("TTC", "ATTATTA", type="global-local")
+@
+\end{footnotesize}
+\end{block}
+\end{frame}
+\end{document}

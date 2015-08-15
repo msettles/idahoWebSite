@@ -1,0 +1,324 @@
+R for Biologist - An Introduction to R (Lecture 1)
+========================================================
+
+What is R
+--------------------------------------------------------
+R is a language and environment for statistical computing and graphics. It provides a wide variety of statistical and graphical techniques (linear and nonlinear modelling, statistical tests, time series analysis, classification, clustering, ...)  and graphical techniques, and is highly extensible. It is a GNU project (Free and Open Source) which is similar to the S language and environment which was developed at Bell Laboratories (formerly AT&T, now Lucent Technologies) by John Chambers and colleagues. R was created by Ross Ihaka and Robert Gentleman[4] at the University of Auckland, New Zealand, and now, R is developed by the R Development Core Team, of which Chambers is a member. R is named partly after the first names of the first two R authors (Robert Gentleman and Ross Ihaka), and partly as a play on the name of S. R can be considered as a different implementation of S. There are some important differences, but much code written for S runs unaltered under R. 
+
+Some of R's strengths:
+* The ease with which well-designed publication-quality plots can be produced, including mathematical symbols and formulae where needed. Great care has been taken over the defaults for the minor design choices in graphics, but the user retains full control.
+* It compiles and runs on a wide variety of UNIX platforms and similar systems (including FreeBSD and Linux), Windows and MacOS.
+* R can be extended (easily) via packages.
+* R has its own LaTeX-like documentation format, which is used to supply comprehensive documentation, both on-line in a number of formats and in hardcopy.
+* Its FREE!
+
+### When to use R - R or Python
+Both R and Python are full featured languages and in most applications are completly overlapping, meaning you can choose to use either one, if your willing to write your own code. The better question is when is it easiest to use one or the other and when are there already tools available to use in one language or the other. 
+
+My opinion is, R is best when you're doing data analysis tasks, or modeling tasks. Visualizing, summarizing, subsetting, filtering, sampling, measuring - all of these things can be done with R programmatically as well as on an ad-hoc basis. Python has some tools for this  - [panas](http://pandas.pydata.org/) - but its not quite there yet.
+
+R is most limited when you can perform a task line by line without reading in the whole dataset.
+
+### The R environment
+R is an integrated suite of software facilities for data manipulation, calculation and graphical display. It includes
+
+* an effective data handling and storage facility,
+* a suite of operators for calculations on arrays, in particular matrices,
+* a large, coherent, integrated collection of intermediate tools for data analysis,
+* graphical facilities for data analysis and display either on-screen or on hardcopy, and
+* a well-developed, simple and effective programming language which includes conditionals, loops, user-defined recursive functions and input and output facilities.
+
+The term "environment" is intended to characterize it as a fully planned and coherent system, rather than an incremental accretion of very specific and inflexible tools, as is frequently the case with other data analysis software.
+
+R, like S, is designed around a true computer language, and it allows users to add additional functionality by defining new functions. Much of the system is itself written in the R dialect of S, which makes it easy for users to follow the algorithmic choices made. For computationally-intensive tasks, C, C++ and Fortran code can be linked and called at run time. Advanced users can write C code to manipulate R objects directly.
+
+Many users think of R as a statistics system. The R group, prefers to think of it of an environment within which statistical techniques are implemented.
+
+The R Homepage
+--------------------------------------
+The R homepage has a wealth of information on it,
+
+[R-project.org](http://r-project.org/)
+
+On the homepage you can:
+* Learn more about R
+* Download R
+* Get Documentation (official and user supplied)
+* Get access to CRAN 'Comprehensive R archival network'
+
+
+
+RStudio
+--------------------------------------
+
+Relatively new project that is the BEST integrated developement environment I have ever used.
+
+[RStudio](http://rstudio.org/)
+
+RStudio has many features:
+* syntax highlighting
+* code completion
+* smart indentation
+* "Projects"
+* workspace browser and data viewer
+* imbedded plots
+* Sweave authoring and knitr with one click pdf or html
+* runs on all platforms and over the web
+
+
+An introduction to an R session
+====================================================
+
+The following session is intended to introduce to you some features of the R environment by using them. Many features of the system will be unfamiliar and puzzling at first, but this puzzlement will soon disappear.
+
+Start the HTML interface to on-line help (in RStudio, or using a web browser available at your machine).
+```{r eval=FALSE}
+help.start()
+```
+
+Generate two pseudo-random normal vectors of x- and y-coordinates. 
+```{r}
+x <- rnorm(50)
+y <- rnorm(x)
+```
+
+Plot the points in the plane. A graphics window will appear automatically. 
+```{r fig.width=6, fig.height=6}
+plot(x, y)
+```
+
+See which R objects are now in the R workspace. 
+```{r}
+ls()
+```
+
+Remove objects no longer needed. (Clean up). 
+```{r}
+rm(x, y)
+```
+
+Make x = (1, 2, ..., 20). 
+```{r}
+x <- 1:20
+```
+
+A `weight' vector of standard deviations. 
+```{r}
+w <- 1 + sqrt(x)/2
+```
+
+Make a data frame of two columns, x and y, and look at it. 
+```{r}
+dummy <- data.frame(x=x, y= x + rnorm(x)*w)
+dummy
+```
+
+Fit a simple linear regression and look at the analysis. With y to the left of the tilde, we are modelling y dependent on x. 
+```{r}
+fm <- lm(y ~ x, data=dummy)
+summary(fm)
+```
+
+Since we know the standard deviations, we can do a weighted regression. 
+```{r}
+fm1 <- lm(y ~ x, data=dummy, weight=1/w^2)
+summary(fm1)
+```
+
+Make the columns in the data frame visible as variables. 
+```{r}
+attach(dummy)
+```
+
+Make a nonparametric local regression function. 
+```{r}
+lrf <- lowess(x, y)
+```
+
+```{r fig.width=6, fig.height=6}
+# Standard point plot. 
+plot(x, y)
+# Add in the local regression. 
+lines(x, lrf$y)
+# The true regression line: (intercept 0, slope 1). 
+abline(0, 1, lty=3)
+# Unweighted regression line. 
+abline(coef(fm), col="blue")
+# Weighted regression line. 
+abline(coef(fm1), col = "red")
+```
+
+Remove data frame from the search path. 
+```{r}
+detach()
+```
+
+A standard regression diagnostic plot to check for heteroscedasticity. Can you see it? 
+```{r fig.width=6, fig.height=6}
+plot(fitted(fm), resid(fm),
+     xlab="Fitted values",
+     ylab="Residuals",
+     main="Residuals vs Fitted")
+```
+
+A normal scores plot to check for skewness, kurtosis and outliers. (Not very useful here.) 
+```{r fig.width=6, fig.height=6}
+qqnorm(resid(fm), main="Residuals Rankit Plot")
+```
+
+Clean up again.
+```{r}
+rm(fm, fm1, lrf, x, dummy)
+```
+
+The next section will look at data from the classical experiment of Michelson to measure the speed of light. This dataset is available in the morley object, but we will read it to illustrate the read.table function.
+
+Get the path to the data file. 
+```{r}
+filepath <- system.file("data", "morley.tab" , package="datasets")
+filepath
+```
+
+Optional. Look at the file. 
+```{r}
+file.show(filepath)
+```
+
+Read in the Michelson data as a data frame, and look at it. There are five experiments (column Expt) and each has 20 runs (column Run) and sl is the recorded speed of light, suitably coded. 
+```{r}
+mm <- read.table(filepath)
+mm
+```
+
+Change Expt and Run into factors. 
+```{r}
+mm$Expt <- factor(mm$Expt)
+mm$Run <- factor(mm$Run)
+```
+
+Make the data frame visible at position 3 (the default). 
+```{r}
+attach(mm)
+```
+
+Compare the five experiments with simple boxplots. 
+```{r fig.height=6, fig.width=6}
+plot(Expt, Speed, main="Speed of Light Data", xlab="Experiment No.")
+```
+
+Analyze as a randomized block, with `runs' and `experiments' as factors. 
+```{r}
+fm <- aov(Speed ~ Run + Expt, data=mm)
+summary(fm)
+```
+
+Fit the sub-model omitting `runs', and compare using a formal analysis of variance. 
+```{r}
+fm0 <- update(fm, . ~ . - Run)
+anova(fm0, fm)
+```
+
+Clean up before moving on.
+```{r}
+detach()
+rm(fm, fm0)
+```
+
+We now look at some more graphical features: contour and image plots.
+
+x is a vector of 50 equally spaced values in the interval [-pi\, pi]. y is the same. 
+```{r}
+x <- seq(-pi, pi, len=50)
+y <- x
+```
+
+f is a square matrix, with rows and columns indexed by x and y respectively, of values of the function cos(y)/(1 + x^2). 
+```{r}
+f <- outer(x, y, function(x, y) cos(y)/(1 + x^2))
+```
+
+Save the plotting parameters and set the plotting region to “square”. 
+```{r}
+oldpar <- par(no.readonly = TRUE)
+par(pty="s")
+```
+
+Make a contour map of f; add in more lines for more detail. 
+```{r fig.height=6, fig.width=6}
+contour(x, y, f)
+contour(x, y, f, nlevels=15, add=TRUE)
+```
+
+fa is the “asymmetric part” of f. (t() is transpose). 
+```{r}
+fa <- (f-t(f))/2
+```
+
+Make a contour plot, ... 
+```{r fig.height=6, fig.width=6}
+contour(x, y, fa, nlevels=15)
+```
+
+... and restore the old graphics parameters. 
+```{r}
+par(oldpar)
+```
+
+Make some high density image plots,
+
+```{r fig.height=6, fig.width=6}
+image(x, y, f)
+image(x, y, fa)
+```
+
+... and clean up before moving on.
+```{r}
+objects(); rm(x, y, f, fa)
+```
+
+R can do complex arithmetic, also.
+```{r}
+th <- seq(-pi, pi, len=100)
+# 1i is used for the complex number i. 
+z <- exp(1i*th)
+```
+
+Plotting complex arguments means plot imaginary versus real parts. This should be a circle. 
+```{r fig.height=6, fig.width=6}
+par(pty="s")
+plot(z, type="l")
+```
+
+Suppose we want to sample points within the unit circle. One method would be to take complex numbers with standard normal real and imaginary parts ... 
+```{r}
+w <- rnorm(100) + rnorm(100)*1i
+```
+
+... and to map any outside the circle onto their reciprocal. 
+```{r}
+w <- ifelse(Mod(w) > 1, 1/w, w)
+```
+
+```{r fig.height=6, fig.width=6}
+plot(w, xlim=c(-1,1), ylim=c(-1,1), pch="+",xlab="x", ylab="y")
+# All points are inside the unit circle, but the distribution is not uniform. 
+lines(z)
+```
+
+The second method uses the uniform distribution. The points should now look more evenly spaced over the disc. 
+```{r fig.height=6, fig.width=6}
+w <- sqrt(runif(100))*exp(2*pi*runif(100)*1i)
+plot(w, xlim=c(-1,1), ylim=c(-1,1), pch="+", xlab="x", ylab="y")
+lines(z)
+```
+
+
+Clean up again. 
+```{r}
+rm(th, w, z)
+```
+
+Quit the R program. You will be asked if you want to save the R workspace, and for an exploratory session like this, you probably do not want to save it.
+```{r, eval=FALSE}
+q()
+```

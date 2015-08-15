@@ -1,0 +1,21 @@
+\frametitle{Data Format}
+\begin{tiny}
+\begin{verbatim}
+[Header]
+GSGT Version 1.9.4
+Processing Date 2/13/2012 12:06 AM
+Content BovineHD_B.bpm
+Num SNPs 777962
+Total SNPs 777962
+Num Samples 1588
+Total Samples 1588
+[Data]
+SNP Name Sample ID Allele1-Forward Allele2-Forward Allele1-Top Allele2-Top
+Allele1-AB Allele2-AB GC Score X Y
+ARS-BFGL-NGS-106614 2891 C C C C B B 0.4913 0.041 1.125
+ARS-BFGL-NGS-89367 2891 T G A C A B 0.8079 0.757 0.661
+BovineHD3100000001 2891 T T A A A A 0.4954 1.297 0.052
+BovineHD3100000002 2891 A A A A A A 0.9381 1.225 0.022
+BovineHD3100000003 2891 C C G G B B 0.4787 0.012 0.669
+\end{verbatim}
+\end{tiny}

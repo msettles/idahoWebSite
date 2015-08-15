@@ -1,0 +1,8 @@
+\beamer@endinputifotherversion {3.26pt}
+\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
+\beamer@sectionintoc {2}{Assembly Strategies}{5}{0}{2}
+\beamer@sectionintoc {3}{Greedy-extension}{7}{0}{3}
+\beamer@sectionintoc {4}{Overlap-Layout-Consensus}{9}{0}{4}
+\beamer@sectionintoc {5}{De Bruijn Graph Assembler}{16}{0}{5}
+\beamer@sectionintoc {6}{Parameter Considerations}{29}{0}{6}
+\beamer@sectionintoc {7}{Resources}{30}{0}{7}

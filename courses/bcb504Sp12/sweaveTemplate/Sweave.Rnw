@@ -1,0 +1,41 @@
+
+
+\documentclass{article}
+\usepackage{Sweave}
+
+\title { Latex/Sweave Incrementally}
+\author { Matt Settles }
+\begin {document}
+\maketitle
+
+\section{Basic Sweave Example with figure}
+This is a basic example with a figure
+
+<<chunk 1>>=
+options(width=40)
+x <- 1:10
+y <- x^2
+y
+@
+
+\begin{center}
+<<fig=TRUE,echo=FALSE,width=5,height=4>>=
+plot(y ~ x )
+@
+\end{center}
+
+\section{making tables in sweave}
+A data frame of sequencing quality characters
+
+<<Rtable, echo=FALSE>>=
+seqqual <- data.frame( numeric=0:41,phred=c(unlist(strsplit(rawToChar(as.raw(0:40 + 33)),split="")),NA),illumina64=c(NA,NA,unlist(strsplit(rawToChar(as.raw(2:41 + 64)),split=""))))
+@
+
+\begin{center}
+<<tab1, echo =FALSE,results=tex>>=
+library(xtable)
+print(xtable(seqqual, caption="Quality Scores by value",label="table:qual"),table.placement="tbp",caption.placement="top",include.rownames=FALSE)
+@
+
+\end{center}
+\end{document}

@@ -1,0 +1,8 @@
+\beamer@endinputifotherversion {3.33pt}
+\beamer@sectionintoc {1}{Alignment/Mapping Applications}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Bowtie2}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{BWA}{5}{0}{1}
+\beamer@sectionintoc {2}{SAM/BAM file manipulation}{6}{0}{2}
+\beamer@subsectionintoc {2}{1}{samtools}{6}{0}{2}
+\beamer@subsectionintoc {2}{2}{PicardTools}{7}{0}{2}
+\beamer@sectionintoc {3}{configure\_Mapping.R}{8}{0}{3}

@@ -1,0 +1,48 @@
+\documentclass{article}
+\begin{document}
+
+
+\title{What to do on the Cloud}
+
+\maketitle
+
+This document describes what you should do to get started analyzing your data on the cloud. 
+
+\section{Software to install}
+
+\begin{itemize}
+  \item Install the development version of R and needed packages.
+  \begin{itemize}
+    \item http://webpages.uidaho.edu/msettles/courses/bcb504Sp12/lectures/Cloud\_install/R-build-devel 
+  \end{itemize}
+  \item Install sequence mapping software (only one of is necessary)
+  \begin{description}
+    \item[BWA] http://bio-bwa.sourceforge.net/
+    \item[Bowtie2] http://bowtie-bio.sourceforge.net/bowtie2/index.shtml 
+  \end{description}
+  \item Install samtools (vcftools)
+  \begin{itemize}
+    \item http://samtools.sourceforge.net/
+  \end{itemize}
+\end{itemize}
+
+
+\section{Move your data from Central Storage to you cloud server}
+\begin{itemize}
+  \item Copy your reads over
+  \item Copy your assembled sequences over
+\end{itemize}
+
+\section{Analyze your data}
+\begin{itemize}
+  \item Map your reads  (produces SAM file)
+  \item Call variants with samtools
+  \begin{itemize}
+    \item use samtools view to convert sam to BAM
+    \item use samtools sort to sort
+    \item use samtools mpileup and bcftools to call variants [http://samtools.sourceforge.net/cns0.shtml]
+    \item use samtools depth to produce coverage by quality information 
+  \end{itemize}
+\end{itemize}
+
+\end{document}

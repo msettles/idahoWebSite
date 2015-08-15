@@ -1,0 +1,4 @@
+\beamer@endinputifotherversion {3.33pt}
+\beamer@sectionintoc {1}{QA}{3}{0}{1}
+\beamer@sectionintoc {2}{QA on raw data}{3}{0}{2}
+\beamer@sectionintoc {3}{Cleaning reads}{4}{0}{3}

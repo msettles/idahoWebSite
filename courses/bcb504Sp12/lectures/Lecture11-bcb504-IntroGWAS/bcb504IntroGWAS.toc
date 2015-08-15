@@ -1,0 +1,6 @@
+\beamer@endinputifotherversion {3.12pt}
+\beamer@sectionintoc {1}{Illumina Genotyping}{3}{0}{1}
+\beamer@sectionintoc {2}{Preprocessing of Data}{5}{0}{2}
+\beamer@subsectionintoc {2}{1}{Data format}{12}{0}{2}
+\beamer@sectionintoc {3}{Data Cleaning}{13}{0}{3}
+\beamer@sectionintoc {4}{software}{15}{0}{4}
