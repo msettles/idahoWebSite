@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 \beamer@endinputifotherversion {3.25pt}
 \beamer@sectionintoc {1}{T\kern -.1667em\lower .5ex\hbox {E}\kern -.125emX\spacefactor \@m {}, \LaTeX and BibTeX}{3}{0}{1}
 \beamer@subsectionintoc {1}{1}{What is T\kern -.1667em\lower .5ex\hbox {E}\kern -.125emX\spacefactor \@m {}, \LaTeX and BibTeX}{3}{0}{1}
@@ -7,3 +8,13 @@
 \beamer@sectionintoc {2}{Reproducible Research}{8}{0}{2}
 \beamer@subsectionintoc {2}{1}{Sweave}{9}{0}{2}
 \beamer@sectionintoc {3}{Web Resources}{10}{0}{3}
+=======
+\beamer@endinputifotherversion {3.12pt}
+\beamer@sectionintoc {1}{LaTeX}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{What is LaTeX}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{History}{4}{0}{1}
+\beamer@subsectionintoc {1}{3}{LaTeX Resources}{6}{0}{1}
+\beamer@sectionintoc {2}{BibTeX}{7}{0}{2}
+\beamer@sectionintoc {3}{Sweave}{8}{0}{3}
+\beamer@sectionintoc {4}{Reproducible Research}{8}{0}{4}
+>>>>>>> 3959c5fcd200a28ac7d7e479a1c76aae012ecb9a

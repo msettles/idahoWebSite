@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 \frametitle{History - \TeX}
   \TeX{} (= tau epsilon chi, and pronounced similar to "blecch"), current version 3.1415926.\\
 \vspace{1cm}
@@ -6,3 +7,9 @@
 As a computer scientist, I really identify with patterns of 0's and  1's; I ought to be able to do something about this
 \end{quote}
 , so he said out that were the traditional rules for typesetting math, what constituted good typography, and as much as he could about type design. A project he originally thought would take 6 months ended up taking almost 10 years.
+=======
+\frametitle{LaTeX}
+  LaTeX is a set of macros build on top of TeX
+
+  LaTeX is based on the idea that authors should be able to focus on the content of what they are writing without being distracted by its visual presentation. In preparing a LaTeX document, the author specifies the logical structure using familiear concepts such as chapter, section, table, figure, etc., and lets the LaTeX system worry about the presentation of the structures. It therefor encourages the separation of layout from content while still allowing manual typesetting adjustments where needed. This is similar to how HTML with CSS works.
+>>>>>>> 3959c5fcd200a28ac7d7e479a1c76aae012ecb9a

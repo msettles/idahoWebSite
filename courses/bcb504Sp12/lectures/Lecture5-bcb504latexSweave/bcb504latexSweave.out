@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 \BOOKMARK [2][]{Outline0.1}{TeX, LaTeXand BibTeX}{}% 1
 \BOOKMARK [3][]{Outline0.1.1.3}{What is TeX, LaTeXand BibTeX}{Outline0.1}% 2
 \BOOKMARK [3][]{Outline0.1.2.4}{TeX}{Outline0.1}% 3
@@ -6,3 +7,12 @@
 \BOOKMARK [2][]{Outline0.2}{Reproducible Research}{}% 6
 \BOOKMARK [3][]{Outline0.2.1.9}{Sweave}{Outline0.2}% 7
 \BOOKMARK [2][]{Outline0.3}{Web Resources}{}% 8
+=======
+\BOOKMARK [2][]{Outline0.1}{LaTeX}{}% 1
+\BOOKMARK [3][]{Outline0.1.1.3}{What is LaTeX}{Outline0.1}% 2
+\BOOKMARK [3][]{Outline0.1.2.4}{History}{Outline0.1}% 3
+\BOOKMARK [3][]{Outline0.1.3.6}{LaTeX Resources}{Outline0.1}% 4
+\BOOKMARK [2][]{Outline0.2}{BibTeX}{}% 5
+\BOOKMARK [2][]{Outline0.3}{Sweave}{}% 6
+\BOOKMARK [2][]{Outline0.4}{Reproducible Research}{}% 7
+>>>>>>> 3959c5fcd200a28ac7d7e479a1c76aae012ecb9a
